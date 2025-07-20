@@ -7,8 +7,6 @@ export default async function Home() {
     headers: await headers(),
   });
 
-  console.log('Session:', session);
-
   if (!session) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
