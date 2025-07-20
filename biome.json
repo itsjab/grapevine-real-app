@@ -46,7 +46,8 @@
       "style": {
         "useFragmentSyntax": "warn",
         "noYodaExpression": "warn",
-        "useDefaultParameterLast": "warn"
+        "useDefaultParameterLast": "warn",
+        "noNonNullAssertion": "off"
       }
     }
   },
