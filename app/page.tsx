@@ -1,21 +1,6 @@
-import { headers } from 'next/headers';
 import Image from 'next/image';
-import { auth } from '@/lib/auth';
 
 export default async function Home() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (!session) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="text-2xl font-bold">Welcome</h1>
-        <p className="mt-4">You are not logged in.</p>
-      </div>
-    );
-  }
-
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
