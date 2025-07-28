@@ -1,0 +1,1 @@
+DROP TABLE `regions_to_appellations`;

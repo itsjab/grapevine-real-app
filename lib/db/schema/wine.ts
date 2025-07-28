@@ -1,4 +1,9 @@
-import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import {
+  integer,
+  primaryKey,
+  sqliteTable,
+  text,
+} from 'drizzle-orm/sqlite-core';
 import { user } from './auth';
 
 const colors = ['white', 'rose', 'red'] as const;
@@ -66,13 +71,24 @@ export const region = sqliteTable('region', {
 export const appellation = sqliteTable('appellation', {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
-  regionId: text('region_id').references(() => region.id, {
-    onDelete: 'set null',
-  }),
   teaser: text('teaser'),
   description: text('description'),
   ...timestamps,
 });
+
+export const appellationRegion = sqliteTable(
+  'regions_to_appellations',
+  {
+    appellationId: text('appellation_id')
+      .notNull()
+      .references(() => appellation.id),
+    regionId: text('region_id')
+      .notNull()
+      .references(() => region.id),
+    ...timestamps,
+  },
+  (table) => [primaryKey({ columns: [table.appellationId, table.regionId] })],
+);
 
 export const grapeVariety = sqliteTable('grape_variety', {
   id: text('id').primaryKey(),
