@@ -37,19 +37,22 @@ export function TopPicks() {
   return (
     <section>
       <h2 className="text-xl font-semibold">Top Picks for You</h2>
-      <Carousel className="mt-4 -mr-4" opts={{ containScroll: 'trimSnaps' }}>
+      <Carousel className="mt-4 -mx-4" opts={{ containScroll: 'trimSnaps' }}>
         <CarouselContent>
           {staticItems.map((item) => (
-            <CarouselItem className="basis-4/5" key={item.link}>
-              <Link href={item.link}>
+            <CarouselItem
+              className="flex basis-60 first-of-type:ml-4 last-of-type:pr-4"
+              key={item.link}
+            >
+              <Link className="block w-full" href={item.link}>
                 <CardCaption>{item.caption}</CardCaption>
                 <Card
                   style={{
                     backgroundImage: item.gradient,
                   }}
-                  className={cn(item.textColor)}
+                  className={cn(item.textColor, 'h-[296px]')}
                 >
-                  <CardContent className="flex aspect-square flex-1 items-end px-4">
+                  <CardContent className="flex flex-1 items-end px-4">
                     <span className="text-xl">{item.name}</span>
                   </CardContent>
                 </Card>
