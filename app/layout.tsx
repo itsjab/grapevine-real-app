@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { Geist_Mono, Lora, Nunito } from 'next/font/google';
 
+import { ThemeProvider } from '@/components/theme-provider';
+
 import './globals.css';
 
 const nunito = Nunito({
@@ -30,11 +32,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${nunito.variable} ${lora.variable} ${geistMono.variable} antialiased pt-6 px-4 pb-4 bg-muted dark`}
+        className={`${nunito.variable} ${lora.variable} ${geistMono.variable} antialiased pt-6 px-4 pb-4 bg-muted`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
