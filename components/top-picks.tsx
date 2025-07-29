@@ -36,7 +36,7 @@ export function TopPicks() {
   ];
   return (
     <section>
-      <h2 className="text-xl">Top Picks for You</h2>
+      <h2 className="text-xl font-semibold">Top Picks for You</h2>
       <Carousel className="mt-4 -mr-4" opts={{ containScroll: 'trimSnaps' }}>
         <CarouselContent>
           {staticItems.map((item) => (
