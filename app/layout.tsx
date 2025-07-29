@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+
+import { Geist_Mono, Lora, Nunito } from 'next/font/google';
+
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const nunito = Nunito({
+  variable: '--font-sans',
+  subsets: ['latin'],
+});
+
+const lora = Lora({
+  variable: '--font-serif',
   subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+  variable: '--font-mono',
   subsets: ['latin'],
 });
 
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${nunito.variable} ${lora.variable} ${geistMono.variable} antialiased pt-6 px-4 pb-4 bg-muted dark`}
       >
         {children}
       </body>
