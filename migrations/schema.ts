@@ -1,4 +1,4 @@
-import { sqliteTable, AnySQLiteColumn, foreignKey, text, integer, uniqueIndex } from "drizzle-orm/sqlite-core"
+import { sqliteTable, AnySQLiteColumn, foreignKey, text, integer, uniqueIndex, primaryKey } from "drizzle-orm/sqlite-core"
   import { sql } from "drizzle-orm"
 
 export const account = sqliteTable("account", {
@@ -130,4 +130,15 @@ export const wine = sqliteTable("wine", {
 	createdAt: integer(),
 	deletedAt: integer(),
 });
+
+export const regionsToAppellations = sqliteTable("regions_to_appellations", {
+	appellationId: text("appellation_id").notNull().references(() => appellation.id),
+	regionId: text("region_id").notNull().references(() => region.id),
+	updatedAt: integer(),
+	createdAt: integer(),
+	deletedAt: integer(),
+},
+(table) => [
+	primaryKey({ columns: [table.appellationId, table.regionId], name: "regions_to_appellations_appellation_id_region_id_pk"})
+]);
 

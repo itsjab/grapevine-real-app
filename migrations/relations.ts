@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm/relations";
-import { user, account, session, region, appellation, wine, tastingNote, producer } from "./schema";
+import { user, account, session, region, appellation, wine, tastingNote, producer, regionsToAppellations } from "./schema";
 
 export const accountRelations = relations(account, ({one}) => ({
 	user: one(user, {
@@ -27,10 +27,12 @@ export const appellationRelations = relations(appellation, ({one, many}) => ({
 		references: [region.id]
 	}),
 	wines: many(wine),
+	regionsToAppellations: many(regionsToAppellations),
 }));
 
 export const regionRelations = relations(region, ({many}) => ({
 	appellations: many(appellation),
+	regionsToAppellations: many(regionsToAppellations),
 }));
 
 export const tastingNoteRelations = relations(tastingNote, ({one}) => ({
@@ -58,4 +60,15 @@ export const wineRelations = relations(wine, ({one, many}) => ({
 
 export const producerRelations = relations(producer, ({many}) => ({
 	wines: many(wine),
+}));
+
+export const regionsToAppellationsRelations = relations(regionsToAppellations, ({one}) => ({
+	region: one(region, {
+		fields: [regionsToAppellations.regionId],
+		references: [region.id]
+	}),
+	appellation: one(appellation, {
+		fields: [regionsToAppellations.appellationId],
+		references: [appellation.id]
+	}),
 }));
