@@ -73,7 +73,7 @@ export function NavTastingNotes({
                   <ArrowUpRight className="text-muted-foreground" />
                   <span>Open in New Tab</span>
                 </DropdownMenuItem>
-                {/* <DropdownMenuSeparator /> */}
+                <DropdownMenuSeparator />
                 {/* <DropdownMenuItem>
                   <Trash2 className="text-muted-foreground" />
                   <span>Delete</span>

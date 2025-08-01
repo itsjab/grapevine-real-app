@@ -1,23 +1,32 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
-
+import { Home, Search, Sparkles } from 'lucide-react';
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon: LucideIcon;
-    isActive?: boolean;
-  }[];
-}) {
+export function NavMain() {
+  const items = [
+    {
+      title: 'Home',
+      url: '/',
+      icon: Home,
+      isActive: true,
+    },
+    {
+      title: 'Search',
+      url: '#',
+      icon: Search,
+    },
+    {
+      title: 'Ask AI',
+      url: '#',
+      icon: Sparkles,
+    },
+  ];
+
   return (
     <SidebarMenu>
       {items.map((item) => (

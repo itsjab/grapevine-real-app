@@ -1,6 +1,3 @@
-'use client';
-
-import { Home, Search, Sparkles } from 'lucide-react';
 import * as React from 'react';
 import { GrapevineIcon } from '@/components/grapevine-icon';
 import {
@@ -21,24 +18,6 @@ const data = {
     email: 'm@example.com',
     avatar: '/avatars/shadcn.jpg',
   },
-  navMain: [
-    {
-      title: 'Home',
-      url: '/',
-      icon: Home,
-      isActive: true,
-    },
-    {
-      title: 'Search',
-      url: '#',
-      icon: Search,
-    },
-    {
-      title: 'Ask AI',
-      url: '#',
-      icon: Sparkles,
-    },
-  ],
   tastingNotes: [
     {
       name: 'Tasting Note 1',
@@ -61,7 +40,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <GrapevineIcon className="size-8" />
           <h1 className="text-lg font-semibold">Grapevine</h1>
         </div>
-        <NavMain items={data.navMain} />
+        <NavMain />
       </SidebarHeader>
       <SidebarContent>
         <NavTastingNotes tastingNotes={data.tastingNotes} />
