@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 import { AppSidebar } from '@/components/app-sidebar';
-import { MobileNavigation } from '@/components/mobile-navigation';
+import { MobileNavigation } from '@/components/nav-mobile';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 const nunito = Nunito({
