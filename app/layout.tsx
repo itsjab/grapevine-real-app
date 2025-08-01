@@ -6,6 +6,10 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
 
+import { AppSidebar } from '@/components/app-sidebar';
+import { MobileNavigation } from '@/components/mobile-navigation';
+import { SidebarProvider } from '@/components/ui/sidebar';
+
 const nunito = Nunito({
   variable: '--font-sans',
   subsets: ['latin'],
@@ -34,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${nunito.variable} ${lora.variable} ${geistMono.variable} antialiased pt-6 px-4 pb-4 bg-muted`}
+        className={`${nunito.variable} ${lora.variable} ${geistMono.variable} antialiased bg-muted`}
       >
         <ThemeProvider
           attribute="class"
@@ -42,7 +46,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SidebarProvider>
+            <AppSidebar />
+            {children}
+            <MobileNavigation />
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
