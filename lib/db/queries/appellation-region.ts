@@ -1,6 +1,6 @@
 import { and, eq } from 'drizzle-orm';
-import { db } from '../index';
-import { appellation, appellationRegion, region } from '../schema/wine';
+import { db } from '@/lib/db';
+import { appellation, appellationRegion, region } from '@/lib/db/schema/wine';
 
 /**
  * Get all regions for a specific appellation
@@ -31,7 +31,10 @@ export async function getAppellationsForRegion(regionId: string) {
       description: appellation.description,
     })
     .from(appellation)
-    .innerJoin(appellationRegion, eq(appellation.id, appellationRegion.appellationId))
+    .innerJoin(
+      appellationRegion,
+      eq(appellation.id, appellationRegion.appellationId),
+    )
     .where(eq(appellationRegion.regionId, regionId));
 }
 
@@ -82,7 +85,10 @@ export async function getRegionWithAppellations(regionId: string) {
 /**
  * Add a region to an appellation
  */
-export async function addRegionToAppellation(appellationId: string, regionId: string) {
+export async function addRegionToAppellation(
+  appellationId: string,
+  regionId: string,
+) {
   return await db.insert(appellationRegion).values({
     appellationId,
     regionId,
@@ -93,29 +99,35 @@ export async function addRegionToAppellation(appellationId: string, regionId: st
 /**
  * Remove a region from an appellation
  */
-export async function removeRegionFromAppellation(appellationId: string, regionId: string) {
+export async function removeRegionFromAppellation(
+  appellationId: string,
+  regionId: string,
+) {
   return await db
     .delete(appellationRegion)
     .where(
       and(
         eq(appellationRegion.appellationId, appellationId),
-        eq(appellationRegion.regionId, regionId)
-      )
+        eq(appellationRegion.regionId, regionId),
+      ),
     );
 }
 
 /**
  * Check if an appellation is associated with a region
  */
-export async function isAppellationInRegion(appellationId: string, regionId: string): Promise<boolean> {
+export async function isAppellationInRegion(
+  appellationId: string,
+  regionId: string,
+): Promise<boolean> {
   const result = await db
     .select()
     .from(appellationRegion)
     .where(
       and(
         eq(appellationRegion.appellationId, appellationId),
-        eq(appellationRegion.regionId, regionId)
-      )
+        eq(appellationRegion.regionId, regionId),
+      ),
     )
     .limit(1);
 

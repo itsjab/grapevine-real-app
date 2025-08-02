@@ -2,7 +2,7 @@
   "version": "6",
   "dialect": "sqlite",
   "id": "0a586da0-ef46-44a2-8e07-9f338808ff71",
-  "prevId": "030790ca-0c72-4ea2-aa93-28cfd8b84825",
+  "prevId": "61f54fdd-f637-4ed1-bf6e-135499a7b1cb",
   "tables": {
     "account": {
       "name": "account",
@@ -105,12 +105,8 @@
           "name": "account_user_id_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -182,9 +178,7 @@
       "indexes": {
         "session_token_unique": {
           "name": "session_token_unique",
-          "columns": [
-            "token"
-          ],
+          "columns": ["token"],
           "isUnique": true
         }
       },
@@ -193,12 +187,8 @@
           "name": "session_user_id_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -263,9 +253,7 @@
       "indexes": {
         "user_email_unique": {
           "name": "user_email_unique",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },
@@ -372,12 +360,8 @@
           "name": "chat_user_id_user_id_fk",
           "tableFrom": "chat",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -438,12 +422,8 @@
           "name": "message_chat_id_chat_id_fk",
           "tableFrom": "message",
           "tableTo": "chat",
-          "columnsFrom": [
-            "chat_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["chat_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -483,12 +463,8 @@
           "name": "stream_chat_id_chat_id_fk",
           "tableFrom": "stream",
           "tableTo": "chat",
-          "columnsFrom": [
-            "chat_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["chat_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -601,12 +577,8 @@
           "name": "regions_to_appellations_appellation_id_appellation_id_fk",
           "tableFrom": "regions_to_appellations",
           "tableTo": "appellation",
-          "columnsFrom": [
-            "appellation_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["appellation_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -614,22 +586,15 @@
           "name": "regions_to_appellations_region_id_region_id_fk",
           "tableFrom": "regions_to_appellations",
           "tableTo": "region",
-          "columnsFrom": [
-            "region_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["region_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "regions_to_appellations_appellation_id_region_id_pk": {
-          "columns": [
-            "appellation_id",
-            "region_id"
-          ],
+          "columns": ["appellation_id", "region_id"],
           "name": "regions_to_appellations_appellation_id_region_id_pk"
         }
       },
@@ -992,12 +957,8 @@
           "name": "tasting_note_user_id_user_id_fk",
           "tableFrom": "tasting_note",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -1005,12 +966,8 @@
           "name": "tasting_note_wine_id_wine_id_fk",
           "tableFrom": "tasting_note",
           "tableTo": "wine",
-          "columnsFrom": [
-            "wine_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["wine_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -1078,12 +1035,8 @@
           "name": "wine_producer_id_producer_id_fk",
           "tableFrom": "wine",
           "tableTo": "producer",
-          "columnsFrom": [
-            "producer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["producer_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         },
@@ -1091,12 +1044,8 @@
           "name": "wine_appellation_id_appellation_id_fk",
           "tableFrom": "wine",
           "tableTo": "appellation",
-          "columnsFrom": [
-            "appellation_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["appellation_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }

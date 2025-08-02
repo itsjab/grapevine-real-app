@@ -142,3 +142,26 @@ export const regionsToAppellations = sqliteTable("regions_to_appellations", {
 	primaryKey({ columns: [table.appellationId, table.regionId], name: "regions_to_appellations_appellation_id_region_id_pk"})
 ]);
 
+export const chat = sqliteTable("chat", {
+	id: text().primaryKey().notNull(),
+	createdAt: integer("created_at").notNull(),
+	title: text().notNull(),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" } ),
+	visibility: text().default("private").notNull(),
+});
+
+export const message = sqliteTable("message", {
+	id: text().primaryKey().notNull(),
+	chatId: text("chat_id").notNull().references(() => chat.id, { onDelete: "cascade" } ),
+	role: text().notNull(),
+	parts: text().notNull(),
+	attachments: text().notNull(),
+	createdAt: integer("created_at").notNull(),
+});
+
+export const stream = sqliteTable("stream", {
+	id: text().primaryKey().notNull(),
+	chatId: text("chat_id").notNull().references(() => chat.id, { onDelete: "cascade" } ),
+	createdAt: integer("created_at").notNull(),
+});
+

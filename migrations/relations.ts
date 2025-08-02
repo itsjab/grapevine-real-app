@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm/relations";
-import { user, account, session, region, appellation, wine, tastingNote, producer, regionsToAppellations } from "./schema";
+import { user, account, session, region, appellation, wine, tastingNote, producer, regionsToAppellations, chat, message, stream } from "./schema";
 
 export const accountRelations = relations(account, ({one}) => ({
 	user: one(user, {
@@ -12,6 +12,7 @@ export const userRelations = relations(user, ({many}) => ({
 	accounts: many(account),
 	sessions: many(session),
 	tastingNotes: many(tastingNote),
+	chats: many(chat),
 }));
 
 export const sessionRelations = relations(session, ({one}) => ({
@@ -70,5 +71,28 @@ export const regionsToAppellationsRelations = relations(regionsToAppellations, (
 	appellation: one(appellation, {
 		fields: [regionsToAppellations.appellationId],
 		references: [appellation.id]
+	}),
+}));
+
+export const chatRelations = relations(chat, ({one, many}) => ({
+	user: one(user, {
+		fields: [chat.userId],
+		references: [user.id]
+	}),
+	messages: many(message),
+	streams: many(stream),
+}));
+
+export const messageRelations = relations(message, ({one}) => ({
+	chat: one(chat, {
+		fields: [message.chatId],
+		references: [chat.id]
+	}),
+}));
+
+export const streamRelations = relations(stream, ({one}) => ({
+	chat: one(chat, {
+		fields: [stream.chatId],
+		references: [chat.id]
 	}),
 }));
