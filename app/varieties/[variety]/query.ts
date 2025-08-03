@@ -4,7 +4,6 @@ import { generateText } from 'ai';
 export async function generateVarietalGuide(variety: string) {
   const { text } = await generateText({
     model: anthropic('claude-4-sonnet-20250514'),
-    maxTokens: 20000,
     temperature: 1,
     system: 'You are a master of wine, writing grape varietal guides.',
     messages: [
@@ -17,7 +16,7 @@ export async function generateVarietalGuide(variety: string) {
           },
           {
             type: 'file',
-            mimeType: 'application/pdf',
+            mediaType: 'application/pdf',
             data: 'https://www.wsetglobal.com/media/3119/wset_l3_wines_sat_en_jun-2016.pdf',
           },
           {
