@@ -29,6 +29,7 @@ import {
 import { GrapevineError } from '@/lib/errors';
 import type { ChatMessage } from '@/lib/types/chat';
 import { convertToUIMessages, generateUUID } from '@/lib/utils';
+import { wineTastingPrompt } from './prompts';
 // import { generateTitleFromUserMessage } from '../../actions';
 import { type PostRequestBody, postRequestBodySchema } from './schema';
 
@@ -147,7 +148,7 @@ export async function POST(request: Request) {
       execute: ({ writer: dataStream }) => {
         const result = streamText({
           model: anthropic('claude-sonnet-4-20250514'),
-          system: 'You are a helpful wine expert',
+          system: wineTastingPrompt,
           messages: convertToModelMessages(uiMessages),
           stopWhen: stepCountIs(5),
           experimental_transform: smoothStream({ chunking: 'word' }),
