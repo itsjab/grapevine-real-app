@@ -7,7 +7,7 @@ interface Quota {
 export const getQuotaByUserType = (user: UserWithAnonymous): Quota => {
   if (user.isAnonymous) {
     return {
-      maxMessagesPerDay: 20,
+      maxMessagesPerDay: 10,
     };
   }
 

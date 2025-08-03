@@ -8,6 +8,7 @@ import type {
   ChatTools,
   CustomUIDataTypes,
 } from '@/lib/types/chat';
+import { type ErrorCode, GrapevineError } from './errors';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -34,4 +35,26 @@ export function convertToUIMessages(messages: DBMessage[]): ChatMessage[] {
 
 export function sanitizeText(text: string) {
   return text.replace('<has_function_call>', '');
+}
+
+export async function fetchWithErrorHandlers(
+  input: RequestInfo | URL,
+  init?: RequestInit,
+) {
+  try {
+    const response = await fetch(input, init);
+
+    if (!response.ok) {
+      const { code, cause } = await response.json();
+      throw new GrapevineError(code as ErrorCode, cause);
+    }
+
+    return response;
+  } catch (error: unknown) {
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      throw new GrapevineError('offline:chat');
+    }
+
+    throw error;
+  }
 }

@@ -13,7 +13,7 @@ import { MultimodalInput } from '@/components/multimodal-input';
 // import { useAutoResume } from '@/hooks/use-auto-resume';
 import { GrapevineError } from '@/lib/errors';
 import type { Attachment, ChatMessage } from '@/lib/types/chat';
-import { generateUUID } from '@/lib/utils';
+import { fetchWithErrorHandlers, generateUUID } from '@/lib/utils';
 
 export function Chat({
   id,
@@ -51,6 +51,7 @@ export function Chat({
     generateId: generateUUID,
     transport: new DefaultChatTransport({
       api: '/api/chat',
+      fetch: fetchWithErrorHandlers,
       prepareSendMessagesRequest({ messages, id, body }) {
         return {
           body: {
