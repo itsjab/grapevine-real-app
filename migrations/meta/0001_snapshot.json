@@ -105,12 +105,8 @@
           "name": "account_user_id_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -182,9 +178,7 @@
       "indexes": {
         "session_token_unique": {
           "name": "session_token_unique",
-          "columns": [
-            "token"
-          ],
+          "columns": ["token"],
           "isUnique": true
         }
       },
@@ -193,12 +187,8 @@
           "name": "session_user_id_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -263,9 +253,7 @@
       "indexes": {
         "user_email_unique": {
           "name": "user_email_unique",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": true
         }
       },
@@ -392,12 +380,8 @@
           "name": "appellation_region_id_region_id_fk",
           "tableFrom": "appellation",
           "tableTo": "region",
-          "columnsFrom": [
-            "region_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["region_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -656,12 +640,8 @@
           "name": "tasting_note_user_id_user_id_fk",
           "tableFrom": "tasting_note",
           "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -669,12 +649,8 @@
           "name": "tasting_note_wine_id_wine_id_fk",
           "tableFrom": "tasting_note",
           "tableTo": "wine",
-          "columnsFrom": [
-            "wine_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["wine_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }
@@ -742,12 +718,8 @@
           "name": "wine_producer_id_producer_id_fk",
           "tableFrom": "wine",
           "tableTo": "producer",
-          "columnsFrom": [
-            "producer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["producer_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         },
@@ -755,12 +727,8 @@
           "name": "wine_appellation_id_appellation_id_fk",
           "tableFrom": "wine",
           "tableTo": "appellation",
-          "columnsFrom": [
-            "appellation_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["appellation_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "no action"
         }

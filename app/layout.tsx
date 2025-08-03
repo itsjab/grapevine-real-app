@@ -9,6 +9,7 @@ import './globals.css';
 import { AppSidebar } from '@/components/app-sidebar';
 import { MobileNavigation } from '@/components/nav-mobile';
 import { SidebarProvider } from '@/components/ui/sidebar';
+import { Toaster } from '@/components/ui/sonner';
 
 const nunito = Nunito({
   variable: '--font-sans',
@@ -49,8 +50,9 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             {children}
-            <MobileNavigation />
+            {/* <MobileNavigation /> */}
           </SidebarProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
