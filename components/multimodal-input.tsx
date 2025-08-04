@@ -55,7 +55,7 @@ function PureMultimodalInput({
   const adjustHeight = useCallback(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight + 2}px`;
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight + 16}px`;
     }
   }, []);
 
@@ -276,7 +276,7 @@ function PureMultimodalInput({
         value={input}
         onChange={handleInput}
         className={cx(
-          'min-h-[24px] max-h-[calc(75dvh)] overflow-hidden resize-none rounded-2xl !text-base bg-muted pb-10 dark:border-zinc-700',
+          'min-h-[40px] max-h-[calc(75dvh)] overflow-hidden resize-none rounded-t-xl !text-base bg-white pb-10 ring-inset border-none shadow-sm',
           className,
         )}
         rows={2}
@@ -303,9 +303,10 @@ function PureMultimodalInput({
       </div> */}
 
       <div className="absolute bottom-0 right-0 p-2 w-fit flex flex-row justify-end">
-        {status === 'submitted' ? (
+        {status === 'submitted' && (
           <StopButton stop={stop} setMessages={setMessages} />
-        ) : (
+        )}
+        {status !== 'submitted' && input && (
           <SendButton
             input={input}
             submitForm={submitForm}
@@ -363,7 +364,7 @@ function PureStopButton({
   return (
     <Button
       data-testid="stop-button"
-      className="rounded-full p-1.5 h-fit border dark:border-zinc-600"
+      className="p-1.5 h-fit"
       onClick={(event) => {
         event.preventDefault();
         stop();
@@ -389,7 +390,7 @@ function PureSendButton({
   return (
     <Button
       data-testid="send-button"
-      className="rounded-full p-1.5 h-fit border dark:border-zinc-600"
+      className="p-1.5 h-fit"
       onClick={(event) => {
         event.preventDefault();
         submitForm();
