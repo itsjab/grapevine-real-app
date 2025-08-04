@@ -102,7 +102,7 @@ export function Chat({
   // });
 
   return (
-    <div className="flex flex-col min-w-0 h-dvh bg-background">
+    <div className="flex flex-col min-w-0 h-[calc(100vh-2.5rem)] md:h-[calc(100vh-4rem)] bg-background">
       {/* <ChatHeader
         chatId={id}
         selectedModelId={initialChatModel}
@@ -121,7 +121,7 @@ export function Chat({
         isArtifactVisible={false}
       />
 
-      <form className="flex mx-auto px-4 bg-background pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
+      <form className="flex mx-auto md:pb-6 gap-2 w-full md:max-w-3xl">
         {!isReadonly && (
           <MultimodalInput
             chatId={id}

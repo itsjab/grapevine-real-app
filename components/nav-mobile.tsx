@@ -25,7 +25,7 @@ export function MobileNavigation({
         variant="outline"
         className="mx-4 h-14 justify-start shadow-sm rounded-xl relative z-10 top-6 bg-white"
       >
-        <Link href="/chat/test" className="flex">
+        <Link href="/chat" className="flex">
           <GrapevineIcon className="!h-6 !w-8 shrink-0 block" />
           <div className="flex flex-col">
             <span className="font-semibold">Tap to write a tasting note </span>
