@@ -1,3 +1,4 @@
+import { MobileNavigation } from '@/components/nav-mobile';
 import { TastingNotesSlider } from '@/components/tasting-notes-slider';
 import { TopPicks } from '@/components/top-picks';
 
@@ -27,6 +28,7 @@ export default async function Home() {
           </BreadcrumbList>
         </Breadcrumb>
       </header>
+      <MobileNavigation activeLink="home" className="md:hidden" />
       <main className="grid gap-8 pt-6 px-4 pb-4">
         <TopPicks />
         <TastingNotesSlider />

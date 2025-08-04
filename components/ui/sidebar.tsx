@@ -2,7 +2,7 @@
 
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { PanelLeftIcon } from 'lucide-react';
+import { MenuIcon, PanelLeftIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
@@ -280,6 +280,33 @@ function SidebarTrigger({
       {...props}
     >
       <PanelLeftIcon className="size-6" />
+      <span className="sr-only">Toggle Sidebar</span>
+    </Button>
+  );
+}
+
+function SidebarTriggerMobile({
+  className,
+  onClick,
+  ...props
+}: React.ComponentProps<typeof Button>) {
+  const { toggleSidebar } = useSidebar();
+
+  return (
+    <Button
+      data-sidebar="trigger"
+      size="icon"
+      variant={'ghost'}
+      color="accent"
+      data-slot="sidebar-trigger"
+      className={cn('size-12', className)}
+      onClick={(event) => {
+        onClick?.(event);
+        toggleSidebar();
+      }}
+      {...props}
+    >
+      <MenuIcon size={24} />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
@@ -728,5 +755,6 @@ export {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
+  SidebarTriggerMobile,
   useSidebar,
 };
