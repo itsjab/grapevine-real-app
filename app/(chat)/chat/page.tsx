@@ -42,9 +42,9 @@ export default async function Page() {
           </BreadcrumbList>
         </Breadcrumb>
       </header>
-      <main className="w-full">
+      <div className="w-full">
         <Chat id={uuid} initialMessages={[]} isReadonly={false} />
-      </main>
+      </div>
     </SidebarInset>
   );
 }
