@@ -102,7 +102,7 @@ export function Chat({
   // });
 
   return (
-    <div className="flex flex-col min-w-0 h-[calc(100vh-2.5rem)] md:h-[calc(100vh-4rem)] bg-background">
+    <div className="flex flex-col min-w-0 h-[calc(100dvh-2.5rem)] md:h-[calc(100dvh-4rem)] bg-background">
       {/* <ChatHeader
         chatId={id}
         selectedModelId={initialChatModel}
