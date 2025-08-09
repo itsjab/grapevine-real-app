@@ -30,10 +30,10 @@ export function TastingNoteTextCard({
 }: TastingNoteTextCardProps) {
   return (
     <Card className="md:max-w-96">
-      <CardHeader>
+      <CardHeader className="mb-6">
         <CardTitle className="text-2xl font-semibold">{title}</CardTitle>
         {regionName || grapeVarieties ? (
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1 mt-2">
             {regionName && (
               <Link
                 href={`/regions/${regionName.toLowerCase()}`}
@@ -53,7 +53,7 @@ export function TastingNoteTextCard({
             ))}
           </div>
         ) : null}
-        <CardDescription className="text-sm">{summary}</CardDescription>
+        <CardDescription className="text-sm mt-4">{summary}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div>
