@@ -1,6 +1,10 @@
 import type { InferUITool, UIMessage } from 'ai';
 import { z } from 'zod';
 
+import type { saveTastingNote } from '@/lib/ai/tools/save-tasting-note';
+
+type tastingNoteTool = InferUITool<typeof saveTastingNote>;
+
 export type DataPart = { type: 'append-message'; message: string };
 
 export const messageMetadataSchema = z.object({
@@ -9,7 +13,9 @@ export const messageMetadataSchema = z.object({
 
 export type MessageMetadata = z.infer<typeof messageMetadataSchema>;
 
-export type ChatTools = {};
+export type ChatTools = {
+  saveTastingNote: tastingNoteTool;
+};
 
 export type CustomUIDataTypes = {
   textDelta: string;

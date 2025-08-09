@@ -150,6 +150,40 @@ const PurePreviewMessage = ({
                 //   );
                 // }
               }
+
+              if (type === 'tool-saveTastingNote') {
+                const { toolCallId, state } = part;
+
+                if (state === 'input-available') {
+                  const { input } = part;
+                  return (
+                    <div key={toolCallId}>
+                      <p>Working on it: {JSON.stringify(input)}</p>
+                    </div>
+                  );
+                }
+
+                if (state === 'output-available') {
+                  const { output } = part;
+
+                  if ('error' in output) {
+                    return (
+                      <div
+                        key={toolCallId}
+                        className="text-red-500 p-2 border rounded"
+                      >
+                        Error: {String(output)}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={toolCallId}>
+                      <p>Tasting Note: {JSON.stringify(output)}</p>
+                    </div>
+                  );
+                }
+              }
             })}
 
             {!isReadonly && (
