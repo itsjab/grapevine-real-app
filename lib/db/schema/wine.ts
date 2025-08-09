@@ -164,6 +164,7 @@ export const createTastingNoteSchema = createInsertSchema(tastingNote);
 export const tastingNoteToolInputSchema = z.object({
   title: z
     .string()
+    .max(200)
     .describe(
       'One-line title for the tasting note, typical the wine name, vintage, and producer.',
     ),
@@ -175,22 +176,22 @@ export const tastingNoteToolInputSchema = z.object({
   appearance: z
     .string()
     .describe(
-      'A detailed description of the wine’s appearance, including color, clarity, and viscosity. For example: Deep ruby, slightly clear towards the rim. High viscosity.',
+      'A detailed description of the wine’s appearance, including color, clarity, and viscosity. Improve the writing if necessary. For example: Deep ruby, slightly clear towards the rim. High viscosity.',
     ),
   nose: z
     .string()
     .describe(
-      'A detailed description of the wine’s nose. For example: The nose is pronounced with aromas of ripe red and dark fruit: strawberries, cherries, and blackberries. A subtle spice note of black pepper, clove and licorice.',
+      'A detailed description of the wine’s nose. Improve the writing if necessary. For example: The nose is pronounced with aromas of ripe red and dark fruit: strawberries, cherries, and blackberries. A subtle spice note of black pepper, clove and licorice. Im',
     ),
   palate: z
     .string()
     .describe(
-      'A detailed description of the wine’s palate. For example: On the palate, the wine is dry, full-bodied, with pronounced but fine tannins. The medium acidity provides balance and lends the wine freshness. Again, ripe red and dark fruit. Subtle spice note: black pepper, licorice, and clove. Long finish, high in alcohol (14.5%).',
+      'A detailed description of the wine’s palate. Improve the writing if necessary. For example: On the palate, the wine is dry, full-bodied, with pronounced but fine tannins. The medium acidity provides balance and lends the wine freshness. Again, ripe red and dark fruit. Subtle spice note: black pepper, licorice, and clove. Long finish, high in alcohol (14.5%).',
     ),
   conclusion: z
     .string()
     .describe(
-      'The quality assessment of the wine, including a rating on a 100-point scale. For example: 93 Points. Excellent wine from Languedoc.',
+      'The quality assessment of the wine, including a rating on a 100-point scale. Improve the writing if necessary. For example: 93 Points. Excellent wine from Languedoc.',
     ),
   vintage: z.string().optional(),
   wineName: z.string().optional(),

@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import type { saveTastingNote } from '@/lib/ai/tools/save-tasting-note';
 
-type tastingNoteTool = InferUITool<typeof saveTastingNote>;
+type tastingNoteTool = InferUITool<ReturnType<typeof saveTastingNote>>;
 
 export type DataPart = { type: 'append-message'; message: string };
 
