@@ -4,7 +4,8 @@ export type ErrorType =
   | 'forbidden'
   | 'not_found'
   | 'rate_limit'
-  | 'offline';
+  | 'offline'
+  | 'internal_error';
 
 export type Surface =
   | 'chat'
@@ -12,7 +13,8 @@ export type Surface =
   | 'api'
   | 'stream'
   | 'database'
-  | 'history';
+  | 'history'
+  | 'database';
 
 export type ErrorCode = `${ErrorType}:${Surface}`;
 
@@ -91,6 +93,8 @@ export function getMessageByErrorCode(errorCode: ErrorCode): string {
       return 'You need to sign in to view this chat. Please sign in and try again.';
     case 'offline:chat':
       return "We're having trouble sending your message. Please check your internet connection and try again.";
+    case 'internal_error:database':
+      return 'An error occurred while saving the tasting note. Please try again later.';
 
     default:
       return 'Something went wrong. Please try again later.';

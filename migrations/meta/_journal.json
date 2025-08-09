@@ -43,6 +43,13 @@
       "when": 1754163980672,
       "tag": "0005_melted_ares",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1754424373386,
+      "tag": "0006_previous_luminals",
+      "breakpoints": true
     }
   ]
 }

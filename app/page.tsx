@@ -1,7 +1,8 @@
+import { headers } from 'next/dist/server/request/headers';
+import { redirect } from 'next/navigation';
 import { MobileNavigation } from '@/components/nav-mobile';
 import { TastingNotesSlider } from '@/components/tasting-notes-slider';
 import { TopPicks } from '@/components/top-picks';
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,8 +11,17 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
+import { auth } from '@/lib/auth';
 
 export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    return redirect('/api/auth/guest?redirect=/');
+  }
+
   return (
     <SidebarInset>
       <header className="hidden md:flex h-16 shrink-0 items-center gap-2 border-b px-4">
@@ -31,7 +41,7 @@ export default async function Home() {
       <MobileNavigation activeLink="home" className="md:hidden" />
       <main className="grid gap-8 pt-6 px-4 pb-4">
         <TopPicks />
-        <TastingNotesSlider />
+        <TastingNotesSlider session={session} />
       </main>
     </SidebarInset>
   );

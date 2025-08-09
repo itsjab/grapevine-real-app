@@ -10,6 +10,7 @@ import {
 } from 'ai';
 import type { UserWithAnonymous } from 'better-auth/plugins';
 import { headers } from 'next/headers';
+import { saveTastingNote } from '@/lib/ai/tools/save-tasting-note';
 // import { after } from 'next/server';
 // import {
 //   createResumableStreamContext,
@@ -152,7 +153,10 @@ export async function POST(request: Request) {
           messages: convertToModelMessages(uiMessages),
           stopWhen: stepCountIs(5),
           experimental_transform: smoothStream({ chunking: 'word' }),
-          tools: {},
+          experimental_activeTools: ['saveTastingNote'],
+          tools: {
+            saveTastingNote: saveTastingNote({ session, dataStream }),
+          },
           // experimental_telemetry: {
           //   isEnabled: isProductionEnvironment,
           //   functionId: 'stream-text',

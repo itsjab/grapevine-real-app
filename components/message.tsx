@@ -15,6 +15,8 @@ import {
 } from '@/components/ui/tooltip';
 import type { ChatMessage } from '@/lib/types/chat';
 import { cn, sanitizeText } from '@/lib/utils';
+import { GrapevineIcon } from './grapevine-icon';
+import { TastingNoteTextCard } from './tasting-note-cards/text';
 
 // import { MessageEditor } from './message-editor';
 
@@ -57,7 +59,7 @@ const PurePreviewMessage = ({
       >
         <div
           className={cn(
-            'flex gap-4 w-full group-data-[role=user]/message:ml-auto group-data-[role=user]/message:max-w-2xl',
+            'flex flex-col gap-2 w-full group-data-[role=user]/message:ml-auto group-data-[role=user]/message:max-w-2xl',
             {
               'w-full': mode === 'edit',
               'group-data-[role=user]/message:w-fit': mode !== 'edit',
@@ -65,10 +67,8 @@ const PurePreviewMessage = ({
           )}
         >
           {message.role === 'assistant' && (
-            <div className="size-8 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border bg-background">
-              <div className="translate-y-px">
-                <Sparkles size={14} />
-              </div>
+            <div className="size-8 flex items-center justify-center shrink-0 rounded-md bg-accent">
+              <GrapevineIcon className="size-5" />
             </div>
           )}
 
@@ -149,6 +149,50 @@ const PurePreviewMessage = ({
                 //     </div>
                 //   );
                 // }
+              }
+
+              if (type === 'tool-saveTastingNote') {
+                const { toolCallId, state } = part;
+
+                if (state === 'input-available') {
+                  const { input } = part;
+                  return (
+                    <div key={toolCallId}>
+                      <p>Working on it: {JSON.stringify(input)}</p>
+                    </div>
+                  );
+                }
+
+                if (state === 'output-available') {
+                  const { output } = part;
+
+                  if ('error' in output) {
+                    return (
+                      <div
+                        key={toolCallId}
+                        className="text-red-500 p-2 border rounded"
+                      >
+                        Error: {String(output)}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div key={toolCallId}>
+                      {/* <p>Tasting Note: {JSON.stringify(output)}</p> */}
+                      <TastingNoteTextCard
+                        title={output.title}
+                        summary={output.summary}
+                        appearance={output.appearance}
+                        nose={output.nose}
+                        palate={output.palate}
+                        conclusion={output.conclusion}
+                        grapeVarieties={output.grapeVarieties}
+                        regionName={output.regionName}
+                      />
+                    </div>
+                  );
+                }
               }
             })}
 

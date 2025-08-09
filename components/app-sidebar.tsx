@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import * as React from 'react';
 import { GrapevineIcon } from '@/components/grapevine-icon';
 import {
@@ -36,10 +37,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <div className="flex items-center gap-2 mb-4">
+        <Link href="/" className="flex items-center gap-2 mb-4">
           <GrapevineIcon className="size-8" />
           <h1 className="text-lg font-semibold">Grapevine</h1>
-        </div>
+        </Link>
         <NavMain />
       </SidebarHeader>
       <SidebarContent>
