@@ -1,6 +1,6 @@
 'use client';
 
-import { GrapeIcon, Home, WineIcon } from 'lucide-react';
+import { GrapeIcon, Home } from 'lucide-react';
 import {
   SidebarMenu,
   SidebarMenuButton,

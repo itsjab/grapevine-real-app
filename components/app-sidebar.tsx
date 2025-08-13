@@ -8,6 +8,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
+import { NavChats } from './nav-chats';
+import { NavLoadingSkeleton } from './nav-loading-skeleton';
 import { NavMain } from './nav-main';
 import { NavTastingNotes } from './nav-tasting-notes';
 import { NavUser } from './nav-user';
@@ -32,7 +34,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain />
       </SidebarHeader>
       <SidebarContent>
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense fallback={<NavLoadingSkeleton title="Your Chats" />}>
+          <NavChats />
+        </React.Suspense>
+        <React.Suspense fallback={<NavLoadingSkeleton title="Your Tasting Notes" />}>
           <NavTastingNotes />
         </React.Suspense>
       </SidebarContent>
