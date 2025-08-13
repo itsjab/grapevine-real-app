@@ -14,14 +14,18 @@ import { NavMain } from './nav-main';
 import { NavTastingNotes } from './nav-tasting-notes';
 import { NavUser } from './nav-user';
 
-// This is sample data.
-const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-};
+// Loading skeleton for NavUser
+function NavUserSkeleton() {
+  return (
+    <div className="flex items-center gap-2 px-2 py-2 rounded-lg">
+      <div className="size-8 rounded-lg bg-sidebar-foreground/10 animate-pulse" />
+      <div className="grid flex-1 gap-1">
+        <div className="h-4 bg-sidebar-foreground/10 rounded animate-pulse" />
+        <div className="h-3 w-2/3 bg-sidebar-foreground/10 rounded animate-pulse" />
+      </div>
+    </div>
+  );
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -42,7 +46,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </React.Suspense>
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <React.Suspense fallback={<NavUserSkeleton />}>
+          <NavUser />
+        </React.Suspense>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
