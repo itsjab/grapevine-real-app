@@ -1,5 +1,5 @@
 import { MessageCircle, MoreHorizontal, Plus } from 'lucide-react';
-import { headers } from 'next/dist/server/request/headers';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 
 import {

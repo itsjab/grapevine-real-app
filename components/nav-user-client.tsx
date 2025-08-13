@@ -8,6 +8,7 @@ import {
   LogOut,
   Sparkles,
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -26,17 +27,24 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import type { User } from '@/lib/auth';
+import { authClient } from '@/lib/auth/client';
 
 export function NavUserClient({ user }: { user: User }) {
   const { isMobile } = useSidebar();
+  const router = useRouter();
 
   function getInitials(name: string): string {
     return name
       .split(' ')
-      .map(word => word.charAt(0))
+      .map((word) => word.charAt(0))
       .join('')
       .toUpperCase()
       .slice(0, 2);
+  }
+
+  async function handleLogout() {
+    await authClient.signOut();
+    router.push('/login');
   }
 
   return (
@@ -82,7 +90,7 @@ export function NavUserClient({ user }: { user: User }) {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
+            {/* <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Sparkles />
                 Upgrade to Pro
@@ -103,8 +111,8 @@ export function NavUserClient({ user }: { user: User }) {
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuSeparator /> */}
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>
