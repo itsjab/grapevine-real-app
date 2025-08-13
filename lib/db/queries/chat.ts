@@ -1,5 +1,6 @@
 import { and, asc, count, desc, eq, gt, gte, lt, type SQL } from 'drizzle-orm';
 
+import type { Session } from '@/lib/auth';
 import { db } from '@/lib/db';
 
 import {
@@ -216,5 +217,28 @@ export async function saveChat({
     });
   } catch (_error) {
     throw new GrapevineError('bad_request:database', 'Failed to save chat');
+  }
+}
+
+export async function getRecentChats(session: Session) {
+  if (!session) {
+    throw new GrapevineError('unauthorized:auth');
+  }
+
+  try {
+    const recentChats = await db
+      .select({
+        id: chat.id,
+        title: chat.title,
+        createdAt: chat.createdAt,
+      })
+      .from(chat)
+      .where(eq(chat.userId, session.user.id))
+      .orderBy(desc(chat.createdAt))
+      .limit(4);
+
+    return recentChats;
+  } catch (_error) {
+    throw new GrapevineError('internal_error:database');
   }
 }

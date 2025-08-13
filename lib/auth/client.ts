@@ -4,3 +4,9 @@ import { createAuthClient } from 'better-auth/react'; // make sure to import fro
 export const authClient = createAuthClient({
   plugins: [anonymousClient()],
 });
+
+export const signInWithGoogle = async () => {
+  const data = await authClient.signIn.social({
+    provider: 'google',
+  });
+};

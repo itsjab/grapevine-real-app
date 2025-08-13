@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, Search, Sparkles } from 'lucide-react';
+import { GrapeIcon, Home } from 'lucide-react';
 import {
   SidebarMenu,
   SidebarMenuButton,
@@ -16,14 +16,9 @@ export function NavMain() {
       isActive: true,
     },
     {
-      title: 'Search',
-      url: '#',
-      icon: Search,
-    },
-    {
-      title: 'Ask AI',
-      url: '#',
-      icon: Sparkles,
+      title: 'Guides',
+      url: '/guides',
+      icon: GrapeIcon,
     },
   ];
 

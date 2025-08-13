@@ -1,5 +1,5 @@
-import { MoreHorizontal, Plus, WineIcon } from 'lucide-react';
-import { headers } from 'next/dist/server/request/headers';
+import { MessageCircle, MoreHorizontal, Plus } from 'lucide-react';
+import { headers } from 'next/headers';
 import Link from 'next/link';
 
 import {
@@ -11,14 +11,14 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { auth } from '@/lib/auth';
-import { getRecentTastingNotes } from '@/lib/db/queries/tasting-note';
+import { getRecentChats } from '@/lib/db/queries/chat';
 
-export async function NavTastingNotes() {
+export async function NavChats() {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
 
-  let tastingNotes: {
+  let chats: {
     name: string;
     url: string;
     emoji: string;
@@ -26,41 +26,41 @@ export async function NavTastingNotes() {
 
   if (session) {
     try {
-      const recentNotes = await getRecentTastingNotes(session);
-      tastingNotes = recentNotes.map((note) => ({
-        name: note.title,
-        url: `/tasting-notes/${note.id}`,
-        emoji: '🍷',
+      const recentChats = await getRecentChats(session);
+      chats = recentChats.map((chat) => ({
+        name: chat.title,
+        url: `/chat/${chat.id}`,
+        emoji: '💬',
       }));
     } catch (error) {
-      console.error('Failed to fetch recent tasting notes:', error);
+      console.error('Failed to fetch recent chats:', error);
     }
   }
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Your Tasting Notes</SidebarGroupLabel>
-      {tastingNotes.length > 0 && (
-        <SidebarGroupAction asChild title="Write a new tasting note">
+      <SidebarGroupLabel>Your Chats</SidebarGroupLabel>
+      {chats.length > 0 && (
+        <SidebarGroupAction asChild title="Start a new chat">
           <Link href="/chat">
-            <Plus /> <span className="sr-only">Write a new tasting note</span>
+            <Plus /> <span className="sr-only">Start a new chat</span>
           </Link>
         </SidebarGroupAction>
       )}
 
       <SidebarMenu>
-        {tastingNotes.length === 0 ? (
+        {chats.length === 0 ? (
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link href="/chat" className="text-sidebar-foreground/70">
-                <WineIcon className="size-4" />
-                <span>Create your first note</span>
+                <MessageCircle className="size-4" />
+                <span>Start your first chat</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         ) : (
           <>
-            {tastingNotes.map((item) => (
+            {chats.map((item) => (
               <SidebarMenuItem key={item.name}>
                 <SidebarMenuButton asChild>
                   <Link href={item.url} title={item.name}>
@@ -70,13 +70,13 @@ export async function NavTastingNotes() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}
-            {tastingNotes.length === 4 && (
+            {chats.length === 4 && (
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
                   className="text-sidebar-foreground/70"
                 >
-                  <Link href="/tasting-notes">
+                  <Link href="/chat">
                     <MoreHorizontal />
                     <span>More</span>
                   </Link>
