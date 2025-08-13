@@ -1,3 +1,4 @@
+import { desc, eq } from 'drizzle-orm';
 import type { Session } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { type TastingNoteToolInput, tastingNote } from '@/lib/db/schema/wine';
@@ -30,6 +31,31 @@ export async function createTastingNote({
       .values(tastingNoteData)
       .returning();
     return result;
+  } catch (_error) {
+    throw new GrapevineError('internal_error:database');
+  }
+}
+
+export async function getRecentTastingNotes(session: Session) {
+  if (!session) {
+    throw new GrapevineError('unauthorized:auth');
+  }
+
+  try {
+    const recentNotes = await db
+      .select({
+        id: tastingNote.id,
+        title: tastingNote.title,
+        wineName: tastingNote.wineName,
+        grapeVarieties: tastingNote.grapeVarieties,
+        createdAt: tastingNote.createdAt,
+      })
+      .from(tastingNote)
+      .where(eq(tastingNote.userId, session.user.id))
+      .orderBy(desc(tastingNote.createdAt))
+      .limit(4);
+
+    return recentNotes;
   } catch (_error) {
     throw new GrapevineError('internal_error:database');
   }

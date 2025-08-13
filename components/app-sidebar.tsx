@@ -19,18 +19,6 @@ const data = {
     email: 'm@example.com',
     avatar: '/avatars/shadcn.jpg',
   },
-  tastingNotes: [
-    {
-      name: 'Tasting Note 1',
-      url: '#',
-      emoji: '🍷',
-    },
-    {
-      name: 'Tasting Note 2',
-      url: '#',
-      emoji: '🍇',
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -44,7 +32,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain />
       </SidebarHeader>
       <SidebarContent>
-        <NavTastingNotes tastingNotes={data.tastingNotes} />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <NavTastingNotes />
+        </React.Suspense>
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
