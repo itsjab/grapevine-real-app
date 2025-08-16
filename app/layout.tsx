@@ -6,7 +6,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
 
-import { AppSidebar } from '@/components/app-sidebar';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -46,10 +45,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <AppSidebar />
-            {children}
-          </SidebarProvider>
+          <SidebarProvider>{children}</SidebarProvider>
           <Toaster />
         </ThemeProvider>
       </body>
