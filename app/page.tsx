@@ -42,7 +42,7 @@ export default async function Home() {
           </Breadcrumb>
         </header>
         <MobileNavigation activeLink="home" className="md:hidden" />
-        <main className="grid gap-8 pt-6 px-4 pb-4">
+        <main className="grid gap-8 pt-6 px-4 pb-32 md:pb-4">
           <TopPicks />
           <TastingNotesSlider session={session} />
         </main>

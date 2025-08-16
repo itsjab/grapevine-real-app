@@ -73,7 +73,7 @@ export default async function Home({
         </header>
         <MobileNavigation activeLink="guides" className="md:hidden" />
 
-        <main className="pt-6 px-4 pb-4">
+        <main className="pt-6 px-4 pb-32 md:pb-4">
           <Markdown>{guide}</Markdown>
         </main>
       </SidebarInset>
