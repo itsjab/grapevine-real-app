@@ -1,5 +1,6 @@
 import { eq } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
+import { AppSidebar } from '@/components/app-sidebar';
 import { Markdown } from '@/components/markdown';
 import { MobileNavigation } from '@/components/nav-mobile';
 import {
@@ -49,30 +50,33 @@ export default async function Home({
   }
 
   return (
-    <SidebarInset>
-      <header className="hidden md:flex h-16 shrink-0 items-center gap-2 border-b px-4">
-        <SidebarTrigger className="-ml-1" />
-        <Separator
-          orientation="vertical"
-          className="mr-2 data-[orientation=vertical]:h-4"
-        />
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem className="hidden md:block">
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem className="hidden md:block">
-              <BreadcrumbLink href="/guides">Guides</BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-      </header>
-      <MobileNavigation activeLink="guides" className="md:hidden" />
+    <>
+      <AppSidebar />
+      <SidebarInset>
+        <header className="hidden md:flex h-16 shrink-0 items-center gap-2 border-b px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator
+            orientation="vertical"
+            className="mr-2 data-[orientation=vertical]:h-4"
+          />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink href="/guides">Guides</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </header>
+        <MobileNavigation activeLink="guides" className="md:hidden" />
 
-      <main className="pt-6 px-4 pb-4">
-        <Markdown>{guide}</Markdown>
-      </main>
-    </SidebarInset>
+        <main className="pt-6 px-4 pb-4">
+          <Markdown>{guide}</Markdown>
+        </main>
+      </SidebarInset>
+    </>
   );
 }
