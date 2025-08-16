@@ -20,7 +20,7 @@ export default async function Home() {
   });
 
   if (!session) {
-    return redirect('/api/auth/guest?redirect=/');
+    return redirect('/login');
   }
 
   return (
