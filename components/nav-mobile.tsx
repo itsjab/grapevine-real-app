@@ -35,7 +35,7 @@ export function MobileNavigation({
           </div>
         </Link>
       </Button>
-      <ul className="flex justify-between px-10 pb-3 pt-10 backdrop-blur-sm">
+      <ul className="flex justify-between px-10 pb-3 pt-10 backdrop-blur-sm bg-white/80">
         <li>
           <Link
             href="/dashboard"

@@ -51,7 +51,7 @@ export default async function Home() {
               id: '1',
               link: '/dashboard/guides/varieties/syrah',
               title: 'Syrah',
-              gradient: 'linear-gradient(to right, #ad5389, #3c1053);',
+              gradient: 'linear-gradient(to right, #ad5389, #3c1053)',
             },
             {
               id: '2',
@@ -71,20 +71,20 @@ export default async function Home() {
               id: '4',
               link: '/dashboard/guides/varieties/merlot',
               title: 'Merlot',
-              gradient: 'linear-gradient(to right, #aa076b, #61045f);',
+              gradient: 'linear-gradient(to right, #aa076b, #61045f)',
             },
             {
               id: '5',
               link: '/dashboard/guides/varieties/chardonnay',
               title: 'Chardonnay',
               gradient:
-                'linear-gradient(90deg, rgb(218, 197, 116) 0%, rgb(218, 197, 116) 7.692%, rgb(217, 182, 86) 7.692%, rgb(217, 182, 86) 15.385%, rgb(213, 163, 55) 15.385%, rgb(213, 163, 55) 23.077%, rgb(208, 143, 23) 23.077%, rgb(208, 143, 23) 30.769%, rgb(200, 121, 0) 30.769%, rgb(200, 121, 0) 38.462%, rgb(190, 97, 0) 38.462%, rgb(190, 97, 0) 46.154%, rgb(178, 72, 0) 46.154%, rgb(178, 72, 0) 53.846%, rgb(165, 47, 0) 53.846%, rgb(165, 47, 0) 61.538%, rgb(150, 22, 0) 61.538%, rgb(150, 22, 0) 69.231%, rgb(134, 0, 0) 69.231%, rgb(134, 0, 0) 76.923%, rgb(116, 0, 0) 76.923%, rgb(116, 0, 0) 84.615%, rgb(98, 0, 0) 84.615%, rgb(98, 0, 0) 92.308%, rgb(80, 0, 0) 92.308%, rgb(80, 0, 0) 100%);',
+                'linear-gradient(90deg, rgb(218, 197, 116) 0%, rgb(218, 197, 116) 7.692%, rgb(217, 182, 86) 7.692%, rgb(217, 182, 86) 15.385%, rgb(213, 163, 55) 15.385%, rgb(213, 163, 55) 23.077%, rgb(208, 143, 23) 23.077%, rgb(208, 143, 23) 30.769%, rgb(200, 121, 0) 30.769%, rgb(200, 121, 0) 38.462%, rgb(190, 97, 0) 38.462%, rgb(190, 97, 0) 46.154%, rgb(178, 72, 0) 46.154%, rgb(178, 72, 0) 53.846%, rgb(165, 47, 0) 53.846%, rgb(165, 47, 0) 61.538%, rgb(150, 22, 0) 61.538%, rgb(150, 22, 0) 69.231%, rgb(134, 0, 0) 69.231%, rgb(134, 0, 0) 76.923%, rgb(116, 0, 0) 76.923%, rgb(116, 0, 0) 84.615%, rgb(98, 0, 0) 84.615%, rgb(98, 0, 0) 92.308%, rgb(80, 0, 0) 92.308%, rgb(80, 0, 0) 100%)',
             },
             {
               id: '6',
               link: '/dashboard/guides/varieties/sauvignon-blanc',
               title: 'Sauvignon Blanc',
-              gradient: 'linear-gradient(to top, #96fbc4 0%, #f9f586 100%);',
+              gradient: 'linear-gradient(to top, #96fbc4 0%, #f9f586 100%)',
             },
             {
               id: '7',
