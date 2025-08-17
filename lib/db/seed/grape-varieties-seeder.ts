@@ -4,7 +4,7 @@ import '../../../envConfig';
 import {
   generateSummary,
   generateVarietalGuide,
-} from '../../../app/varieties/[variety]/query';
+} from '../../../app/dashboard/guides/varieties/[variety]/query';
 import { db } from '../index';
 import { grapeVariety } from '../schema/wine';
 import grapeVarieties from './grape-varieties.json';
