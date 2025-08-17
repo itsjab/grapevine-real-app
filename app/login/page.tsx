@@ -10,7 +10,7 @@ export default async function LoginPage() {
   });
 
   if (session) {
-    return redirect('/');
+    return redirect('/dashboard');
   }
 
   return (
