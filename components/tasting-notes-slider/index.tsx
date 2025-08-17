@@ -44,7 +44,8 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
   }
 
   return (
-    <div>
+    <section>
+      <h2 className="text-xl font-semibold mb-4">Your Tasting Notes</h2>
       <Carousel
         className="mt-4 -mx-4 max-w-screen"
         opts={{ containScroll: 'trimSnaps' }}
@@ -96,7 +97,7 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
           </CarouselItem>
         </CarouselContent>
       </Carousel>
-    </div>
+    </section>
   );
 }
 
