@@ -29,7 +29,7 @@ export async function NavTastingNotes() {
       const recentNotes = await getRecentTastingNotes(session);
       tastingNotes = recentNotes.map((note) => ({
         name: note.title,
-        url: `/tasting-notes/${note.id}`,
+        url: `/dashboard/tasting-notes/${note.id}`,
         emoji: '🍷',
       }));
     } catch (error) {

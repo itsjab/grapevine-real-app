@@ -38,7 +38,6 @@ const components: Partial<Components> = {
       // @ts-expect-error
       <Link
         className="text-primary hover:underline"
-        target="_blank"
         rel="noreferrer"
         {...props}
       >

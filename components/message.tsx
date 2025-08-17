@@ -17,6 +17,7 @@ import type { ChatMessage } from '@/lib/types/chat';
 import { cn, sanitizeText } from '@/lib/utils';
 import { GrapevineIcon } from './grapevine-icon';
 import { TastingNoteTextCard } from './tasting-note-cards/text';
+import WineTypewriter from './wine-typewriter';
 
 // import { MessageEditor } from './message-editor';
 
@@ -155,10 +156,9 @@ const PurePreviewMessage = ({
                 const { toolCallId, state } = part;
 
                 if (state === 'input-available') {
-                  const { input } = part;
                   return (
                     <div key={toolCallId}>
-                      <p>Working on it: {JSON.stringify(input)}</p>
+                      <WineTypewriter />
                     </div>
                   );
                 }
@@ -179,7 +179,6 @@ const PurePreviewMessage = ({
 
                   return (
                     <div key={toolCallId}>
-                      {/* <p>Tasting Note: {JSON.stringify(output)}</p> */}
                       <TastingNoteTextCard
                         title={output.title}
                         summary={output.summary}
@@ -243,15 +242,11 @@ export const ThinkingMessage = () => {
           },
         )}
       >
-        <div className="size-8 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
-          <Sparkles size={14} />
+        <div className="size-8 flex items-center justify-center shrink-0 rounded-md bg-accent">
+          <GrapevineIcon className="size-5" />
         </div>
 
-        <div className="flex flex-col gap-2 w-full">
-          <div className="flex flex-col gap-4 text-muted-foreground">
-            Hmm...
-          </div>
-        </div>
+        <WineTypewriter />
       </div>
     </motion.div>
   );

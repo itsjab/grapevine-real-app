@@ -31,7 +31,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <Link href="/" className="flex items-center gap-2 mb-4">
+        <Link href="/dashboard" className="flex items-center gap-2 mb-4">
           <GrapevineIcon className="size-8" />
           <h1 className="text-lg font-semibold">Grapevine</h1>
         </Link>
@@ -41,7 +41,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <React.Suspense fallback={<NavLoadingSkeleton title="Your Chats" />}>
           <NavChats />
         </React.Suspense>
-        <React.Suspense fallback={<NavLoadingSkeleton title="Your Tasting Notes" />}>
+        <React.Suspense
+          fallback={<NavLoadingSkeleton title="Your Tasting Notes" />}
+        >
           <NavTastingNotes />
         </React.Suspense>
       </SidebarContent>

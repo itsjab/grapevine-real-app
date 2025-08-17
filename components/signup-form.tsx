@@ -92,7 +92,10 @@ export function SignupForm({
           <Form className="p-6 md:p-8" action={formAction}>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <Link href="/" className="flex items-center gap-2 mb-4">
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 mb-4"
+                >
                   <GrapevineIcon className="size-8" />
                   <h1 className="text-2xl font-bold">Grapevine</h1>
                 </Link>

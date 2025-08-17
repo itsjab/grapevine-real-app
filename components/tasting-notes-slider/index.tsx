@@ -56,7 +56,7 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
               key={note.id}
             >
               <Link
-                href={`/tasting-notes/${note.id}`}
+                href={`/dashboard/tasting-notes/${note.id}`}
                 key={note.id}
                 className="block w-36"
               >
@@ -83,7 +83,7 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
             </CarouselItem>
           ))}
           <CarouselItem className="flex basis-40 pr-4">
-            <Link href="/chat" className="block w-36">
+            <Link href="/dashboard/chat" className="block w-36">
               <Card className="size-36">
                 <CardContent className="h-full flex items-center justify-center">
                   <Plus className="size-10 text-primary" />

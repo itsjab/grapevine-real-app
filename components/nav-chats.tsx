@@ -22,6 +22,7 @@ export async function NavChats() {
     name: string;
     url: string;
     emoji: string;
+    id: string;
   }[] = [];
 
   if (session) {
@@ -29,8 +30,9 @@ export async function NavChats() {
       const recentChats = await getRecentChats(session);
       chats = recentChats.map((chat) => ({
         name: chat.title,
-        url: `/chat/${chat.id}`,
+        url: `/dashboard/chat/${chat.id}`,
         emoji: '💬',
+        id: chat.id,
       }));
     } catch (error) {
       console.error('Failed to fetch recent chats:', error);
@@ -61,7 +63,7 @@ export async function NavChats() {
         ) : (
           <>
             {chats.map((item) => (
-              <SidebarMenuItem key={item.name}>
+              <SidebarMenuItem key={item.id}>
                 <SidebarMenuButton asChild>
                   <Link href={item.url} title={item.name}>
                     <span>{item.emoji}</span>

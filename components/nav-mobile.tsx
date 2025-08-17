@@ -38,7 +38,7 @@ export function MobileNavigation({
       <ul className="flex justify-between px-10 pb-3 pt-10 backdrop-blur-sm">
         <li>
           <Link
-            href="/"
+            href="/dashboard"
             className={cn({ 'text-primary': activeLink === 'home' })}
           >
             <Home size={24} />

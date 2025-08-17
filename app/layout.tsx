@@ -6,7 +6,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
 
-import { SidebarProvider } from '@/components/ui/sidebar';
 import { Toaster } from '@/components/ui/sonner';
 
 const nunito = Nunito({
@@ -45,7 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>{children}</SidebarProvider>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
