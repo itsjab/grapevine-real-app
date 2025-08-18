@@ -30,7 +30,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'appearance'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('appearance')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('appearance') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
@@ -42,7 +44,7 @@ export function TastingGuide({
             </CollapsibleTrigger>
           </SidebarGroupLabel>
           <CollapsibleContent className="px-2 pb-4">
-            <SidebarGroupContent>
+            <SidebarGroupContent className="overflow-y-auto">
               <h3 className="text-xl font-semibold mt-4">Appearance</h3>
               <p className="mt-2">
                 Assessing a wine's appearance includes three simple steps:
@@ -184,7 +186,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'nose'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('nose')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('nose') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
@@ -261,7 +265,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'palate'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('palate')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('palate') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
@@ -272,8 +278,8 @@ export function TastingGuide({
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
-          <CollapsibleContent className="px-2 pb-4">
-            <SidebarGroupContent>
+          <CollapsibleContent className="px-2 pb-4 overflow-y-auto">
+            <SidebarGroupContent className="overflow-y-auto">
               <h3 className="text-xl font-semibold mt-4">Palate</h3>
 
               <p className="mt-2 text-sm">
@@ -564,7 +570,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'primary'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('primary')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('primary') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
@@ -685,7 +693,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'secondary'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('secondary')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('secondary') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
@@ -743,7 +753,9 @@ export function TastingGuide({
         <Collapsible
           open={openItem === 'tertiary'}
           className="group/collapsible"
-          onOpenChange={(open: boolean) => open && setOpenItem('tertiary')}
+          onOpenChange={(open: boolean) =>
+            open ? setOpenItem('tertiary') : setOpenItem('')
+          }
         >
           <SidebarGroupLabel
             asChild
