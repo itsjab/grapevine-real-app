@@ -126,7 +126,7 @@ export function Chat({
       />
 
       <form className="flex flex-col mx-auto md:pb-6 gap-2 w-full md:max-w-3xl md:px-4">
-        <div className="flex gap-2">
+        <div className="flex gap-2 max-md:px-2">
           <Button size="xs" type="button" onClick={openRightSidebar}>
             Tasting Guide
           </Button>
