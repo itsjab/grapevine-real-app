@@ -1,12 +1,11 @@
 'use client';
 
 import * as React from 'react';
-
+import { TastingGuide } from '@/components/tasting-guide-collapsible';
 import {
   SidebarRight as Sidebar,
   SidebarContent,
   SidebarHeader,
-  SidebarRail,
 } from '@/components/ui/sidebar';
 
 export function SidebarRight({
@@ -14,9 +13,12 @@ export function SidebarRight({
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar side="right" collapsible="offcanvas" {...props}>
-      <SidebarHeader>Test</SidebarHeader>
-      <SidebarContent></SidebarContent>
-      <SidebarRail />
+      <SidebarHeader className="flex gap-2">
+        <span className="text-muted-foreground">Tasting Guide</span>
+      </SidebarHeader>
+      <SidebarContent>
+        <TastingGuide defaultOpen="appearance" />
+      </SidebarContent>
     </Sidebar>
   );
 }

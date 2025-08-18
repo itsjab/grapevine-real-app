@@ -38,6 +38,7 @@ import { cn } from '@/lib/utils';
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = '16rem';
+const SIDEBAR_WIDTH_RIGHT = '24rem';
 const SIDEBAR_WIDTH_MOBILE = '100vw';
 const SIDEBAR_WIDTH_ICON = '3rem';
 const SIDEBAR_KEYBOARD_SHORTCUT = 'b';
@@ -188,6 +189,7 @@ function SidebarProvider({
             {
               '--sidebar-width': SIDEBAR_WIDTH,
               '--sidebar-width-icon': SIDEBAR_WIDTH_ICON,
+              '--sidebar-width-right': SIDEBAR_WIDTH_RIGHT,
               ...style,
             } as React.CSSProperties
           }
@@ -330,10 +332,9 @@ function SidebarRight({
     return (
       <Drawer open={openRight} onOpenChange={toggleRightSidebar}>
         <DrawerContent>
-          <DrawerHeader>
+          {/* <DrawerHeader>
             <DrawerTitle>Sidebar</DrawerTitle>
-            <DrawerDescription>Displays the mobile sidebar.</DrawerDescription>
-          </DrawerHeader>
+          </DrawerHeader> */}
           <div className="flex h-full w-full flex-col">{children}</div>
         </DrawerContent>
       </Drawer>
@@ -353,7 +354,7 @@ function SidebarRight({
       <div
         data-slot="sidebar-gap"
         className={cn(
-          'relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear',
+          'relative w-(--sidebar-width-right) bg-transparent transition-[width] duration-200 ease-linear',
           'group-data-[collapsible=offcanvas]:w-0',
           'group-data-[side=right]:rotate-180',
         )}
@@ -361,8 +362,8 @@ function SidebarRight({
       <div
         data-slot="sidebar-container"
         className={cn(
-          'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
-          'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]',
+          'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width-right) transition-[left,right,width] duration-200 ease-linear md:flex',
+          'right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width-right)*-1)]',
           'group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l',
           className,
         )}
