@@ -23,6 +23,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
 import type { Attachment, ChatMessage } from '@/lib/types/chat';
+import { SidebarTriggerRight } from './ui/sidebar';
 
 function PureMultimodalInput({
   chatId,
