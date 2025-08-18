@@ -702,7 +702,7 @@ export function TastingGuide({
             className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full text-sm"
           >
             <CollapsibleTrigger>
-              🧪 Secondary Aromas{' '}
+              Secondary Aromas{' '}
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
@@ -762,7 +762,7 @@ export function TastingGuide({
             className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full text-sm"
           >
             <CollapsibleTrigger>
-              🍷 Tertiary Aromas{' '}
+              🍾 Tertiary Aromas{' '}
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
