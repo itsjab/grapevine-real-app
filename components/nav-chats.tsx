@@ -44,7 +44,7 @@ export async function NavChats() {
       <SidebarGroupLabel>Your Chats</SidebarGroupLabel>
       {chats.length > 0 && (
         <SidebarGroupAction asChild title="Start a new chat">
-          <Link href="/chat">
+          <Link href="/dashboard/chat">
             <Plus /> <span className="sr-only">Start a new chat</span>
           </Link>
         </SidebarGroupAction>
@@ -54,7 +54,10 @@ export async function NavChats() {
         {chats.length === 0 ? (
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link href="/chat" className="text-sidebar-foreground/70">
+              <Link
+                href="/dashboard/chat"
+                className="text-sidebar-foreground/70"
+              >
                 <MessageCircle className="size-4" />
                 <span>Start your first chat</span>
               </Link>
@@ -78,7 +81,7 @@ export async function NavChats() {
                   asChild
                   className="text-sidebar-foreground/70"
                 >
-                  <Link href="/chat">
+                  <Link href="/dashboard/chat">
                     <MoreHorizontal />
                     <span>More</span>
                   </Link>

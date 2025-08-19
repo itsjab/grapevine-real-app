@@ -42,7 +42,7 @@ export async function NavTastingNotes() {
       <SidebarGroupLabel>Your Tasting Notes</SidebarGroupLabel>
       {tastingNotes.length > 0 && (
         <SidebarGroupAction asChild title="Write a new tasting note">
-          <Link href="/chat">
+          <Link href="/dashboard/chat">
             <Plus /> <span className="sr-only">Write a new tasting note</span>
           </Link>
         </SidebarGroupAction>
@@ -52,7 +52,10 @@ export async function NavTastingNotes() {
         {tastingNotes.length === 0 ? (
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <Link href="/chat" className="text-sidebar-foreground/70">
+              <Link
+                href="/dashboard/chat"
+                className="text-sidebar-foreground/70"
+              >
                 <WineIcon className="size-4" />
                 <span>Create your first note</span>
               </Link>
@@ -76,7 +79,7 @@ export async function NavTastingNotes() {
                   asChild
                   className="text-sidebar-foreground/70"
                 >
-                  <Link href="/tasting-notes">
+                  <Link href="/dashboard/tasting-notes">
                     <MoreHorizontal />
                     <span>More</span>
                   </Link>
