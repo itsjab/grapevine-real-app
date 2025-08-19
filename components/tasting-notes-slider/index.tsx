@@ -63,10 +63,7 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
               >
                 <Card
                   className="size-36"
-                  style={{
-                    backgroundImage:
-                      'conic-gradient(from 90deg, rgb(47, 17, 54) 0deg, rgb(47, 17, 54) 27.692deg, rgb(52, 18, 52) 27.692deg, rgb(52, 18, 52) 55.385deg, rgb(58, 22, 52) 55.385deg, rgb(58, 22, 52) 83.077deg, rgb(66, 28, 56) 83.077deg, rgb(66, 28, 56) 110.769deg, rgb(74, 35, 62) 110.769deg, rgb(74, 35, 62) 138.462deg, rgb(83, 45, 70) 138.462deg, rgb(83, 45, 70) 166.154deg, rgb(91, 55, 81) 166.154deg, rgb(91, 55, 81) 193.846deg, rgb(99, 67, 93) 193.846deg, rgb(99, 67, 93) 221.538deg, rgb(105, 80, 107) 221.538deg, rgb(105, 80, 107) 249.231deg, rgb(110, 92, 122) 249.231deg, rgb(110, 92, 122) 276.923deg, rgb(112, 104, 138) 276.923deg, rgb(112, 104, 138) 304.615deg, rgb(112, 116, 153) 304.615deg, rgb(112, 116, 153) 332.308deg, rgb(110, 126, 169) 332.308deg, rgb(110, 126, 169) 360deg)',
-                  }}
+                  style={note.gradient ? note.gradient : {}}
                 >
                   {/* <CardContent className="h-full flex items-center justify-center"></CardContent> */}
                 </Card>

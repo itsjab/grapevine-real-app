@@ -1,0 +1,1 @@
+ALTER TABLE `tasting_note` ADD `gradient` text;

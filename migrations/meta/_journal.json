@@ -50,6 +50,13 @@
       "when": 1754424373386,
       "tag": "0006_previous_luminals",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1755627032980,
+      "tag": "0007_nifty_freak",
+      "breakpoints": true
     }
   ]
 }
