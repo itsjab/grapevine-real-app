@@ -9,8 +9,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { Messages } from '@/components/messages';
 import { MultimodalInput } from '@/components/multimodal-input';
-import { Button } from '@/components/ui/button';
-import { SidebarTriggerRight, useSidebar } from '@/components/ui/sidebar';
+import { useSidebar } from '@/components/ui/sidebar';
 // import { ChatHeader } from '@/components/chat-header';
 // import { useAutoResume } from '@/hooks/use-auto-resume';
 import { GrapevineError } from '@/lib/errors';
@@ -96,7 +95,7 @@ export function Chat({
     }
   }, [query, sendMessage, hasAppendedQuery, id]);
 
-  // const [attachments, setAttachments] = useState<Array<Attachment>>([]);
+  const [attachments, setAttachments] = useState<Array<Attachment>>([]);
 
   // useAutoResume({
   //   autoResume,
@@ -126,11 +125,6 @@ export function Chat({
       />
 
       <form className="flex flex-col mx-auto md:pb-6 gap-2 w-full md:max-w-3xl md:px-4">
-        <div className="flex gap-2 max-md:px-2">
-          <Button size="xs" type="button" onClick={openRightSidebar}>
-            Tasting Guide
-          </Button>
-        </div>
         {!isReadonly && (
           <div className="w-full">
             <MultimodalInput
@@ -139,11 +133,12 @@ export function Chat({
               setInput={setInput}
               status={status}
               stop={stop}
-              // attachments={attachments}
-              // setAttachments={setAttachments}
+              attachments={attachments}
+              setAttachments={setAttachments}
               messages={messages}
               setMessages={setMessages}
               sendMessage={sendMessage}
+              openRightSidebar={openRightSidebar}
               // selectedVisibilityType={visibilityType}
             />
           </div>

@@ -31,7 +31,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <Link href="/dashboard" className="flex items-center gap-2 mb-4">
+        <Link href="/dashboard" className="flex items-center gap-2 ml-2 my-2">
           <GrapevineIcon className="size-8" />
           <h1 className="text-lg font-semibold">Grapevine</h1>
         </Link>

@@ -92,7 +92,7 @@ export default async function TastingNotePage(props: {
           <div className="flex flex-wrap gap-1 mt-2">
             {regionName && (
               <Link
-                href={`/regions/${regionName.toLowerCase()}`}
+                href={`/dashboard/guides/regions/${regionName.toLowerCase()}`}
                 className="flex items-center h-6 px-2 text-xs bg-chart-5 text-accent-foreground rounded-md"
               >
                 {regionName}
@@ -101,7 +101,7 @@ export default async function TastingNotePage(props: {
             {grapeVarieties?.split(',').map((variety) => (
               <Link
                 key={variety}
-                href={`/varieties/${variety.toLowerCase()}`}
+                href={`/dashboard/guides/varieties/${variety.toLowerCase()}`}
                 className="flex items-center h-6 px-2 text-xs bg-chart-5 text-accent-foreground rounded-md"
               >
                 {variety}

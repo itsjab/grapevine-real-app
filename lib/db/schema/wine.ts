@@ -156,6 +156,7 @@ export const tastingNote = sqliteTable('tasting_note', {
   body: text('body', { enum: body }),
   alcohol: text('alcohol', { enum: alcohol }),
   rating: integer('rating').default(75),
+  gradient: text({ mode: 'json' }),
   ...timestamps,
 });
 
