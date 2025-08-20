@@ -96,7 +96,7 @@ export function Chat({
     }
   }, [query, sendMessage, hasAppendedQuery, id]);
 
-  // const [attachments, setAttachments] = useState<Array<Attachment>>([]);
+  const [attachments, setAttachments] = useState<Array<Attachment>>([]);
 
   // useAutoResume({
   //   autoResume,
@@ -139,8 +139,8 @@ export function Chat({
               setInput={setInput}
               status={status}
               stop={stop}
-              // attachments={attachments}
-              // setAttachments={setAttachments}
+              attachments={attachments}
+              setAttachments={setAttachments}
               messages={messages}
               setMessages={setMessages}
               sendMessage={sendMessage}
