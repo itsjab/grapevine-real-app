@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { Messages } from '@/components/messages';
 import { MultimodalInput } from '@/components/multimodal-input';
-import { SidebarTriggerRight, useSidebar } from '@/components/ui/sidebar';
+import { useSidebar } from '@/components/ui/sidebar';
 // import { ChatHeader } from '@/components/chat-header';
 // import { useAutoResume } from '@/hooks/use-auto-resume';
 import { GrapevineError } from '@/lib/errors';
