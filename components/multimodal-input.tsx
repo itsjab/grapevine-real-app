@@ -4,7 +4,13 @@ import type { UseChatHelpers } from '@ai-sdk/react';
 import type { UIMessage } from 'ai';
 import cx from 'classnames';
 import equal from 'fast-deep-equal';
-import { ArrowDown, ArrowUpIcon, PaperclipIcon, Square } from 'lucide-react';
+import {
+  ArrowDown,
+  ArrowUpIcon,
+  PaperclipIcon,
+  Square,
+  Wine,
+} from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import type React from 'react';
 import {
@@ -37,6 +43,7 @@ function PureMultimodalInput({
   messages,
   setMessages,
   sendMessage,
+  openRightSidebar,
   className,
 }: {
   chatId: string;
@@ -49,6 +56,7 @@ function PureMultimodalInput({
   messages: Array<UIMessage>;
   setMessages: UseChatHelpers<ChatMessage>['setMessages'];
   sendMessage: UseChatHelpers<ChatMessage>['sendMessage'];
+  openRightSidebar?: () => void;
   className?: string;
 }) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -301,8 +309,14 @@ function PureMultimodalInput({
         }}
       />
 
-      <div className="absolute bottom-0 p-2 w-fit flex flex-row justify-start">
+      <div className="absolute bottom-0 p-2 w-fit flex flex-row justify-start gap-1">
         <AttachmentsButton fileInputRef={fileInputRef} status={status} />
+        {openRightSidebar && (
+          <TastingGuideButton
+            openRightSidebar={openRightSidebar}
+            status={status}
+          />
+        )}
       </div>
 
       <div className="absolute bottom-0 right-0 p-2 w-fit flex flex-row justify-end">
@@ -356,6 +370,32 @@ function PureAttachmentsButton({
 }
 
 const AttachmentsButton = memo(PureAttachmentsButton);
+
+function PureTastingGuideButton({
+  openRightSidebar,
+  status,
+}: {
+  openRightSidebar: () => void;
+  status: UseChatHelpers<ChatMessage>['status'];
+}) {
+  return (
+    <Button
+      data-testid="tasting-guide-button"
+      className="bg-secondary/30 "
+      onClick={(event) => {
+        event.preventDefault();
+        openRightSidebar();
+      }}
+      disabled={status !== 'ready'}
+      variant="secondary"
+      size="xs"
+    >
+      Tasting Guide
+    </Button>
+  );
+}
+
+const TastingGuideButton = memo(PureTastingGuideButton);
 
 function PureStopButton({
   stop,
