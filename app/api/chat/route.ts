@@ -10,6 +10,7 @@ import {
 } from 'ai';
 import type { UserWithAnonymous } from 'better-auth/plugins';
 import { headers } from 'next/headers';
+import { generateTitleFromUserMessage } from '@/app/api/chat/actions';
 import { saveTastingNote } from '@/lib/ai/tools/save-tasting-note';
 // import { after } from 'next/server';
 // import {
@@ -31,7 +32,6 @@ import { GrapevineError } from '@/lib/errors';
 import type { ChatMessage } from '@/lib/types/chat';
 import { convertToUIMessages, generateUUID } from '@/lib/utils';
 import { wineTastingPrompt } from './prompts';
-// import { generateTitleFromUserMessage } from '../../actions';
 import { type PostRequestBody, postRequestBodySchema } from './schema';
 
 export const maxDuration = 60;
@@ -100,11 +100,9 @@ export async function POST(request: Request) {
     const chat = await getChatById({ id });
 
     if (!chat) {
-      // const title = await generateTitleFromUserMessage({
-      //   message,
-      // });
-
-      const title = 'New Chat';
+      const title = await generateTitleFromUserMessage({
+        message,
+      });
 
       await saveChat({
         id,
