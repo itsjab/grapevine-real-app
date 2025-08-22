@@ -1,4 +1,4 @@
-import { GrapeIcon, Home, SearchIcon } from 'lucide-react';
+import { GrapeIcon, Home, ListIcon, SearchIcon } from 'lucide-react';
 import Link from 'next/link';
 import { GrapevineIcon } from '@/components/grapevine-icon';
 import { Button } from '@/components/ui/button';
@@ -20,22 +20,38 @@ export function MobileNavigation({
         props.className,
       )}
     >
-      <Button
-        asChild
-        variant="outline"
-        className="mx-4 h-14 justify-start shadow-sm rounded-xl relative z-10 top-6 bg-white"
-      >
-        <Link href="/dashboard/chat" className="flex">
-          <GrapevineIcon className="!h-6 !w-8 shrink-0 block" />
-          <div className="flex flex-col">
-            <span className="font-semibold">Tap to write a tasting note </span>
-            <span className="text-xs font-medium text-muted-foreground">
-              (or ask a question)
-            </span>
-          </div>
-        </Link>
-      </Button>
-      <ul className="flex justify-between px-10 pb-3 pt-10 backdrop-blur-sm bg-white/80">
+      <div className="flex mx-4 shadow-sm rounded-xl z-10 top-6 relative">
+        <Button
+          asChild
+          variant="outline"
+          className="flex-1 h-14 justify-start bg-white border-r-0 rounded-r-none"
+        >
+          <Link href="/dashboard/chat" className="flex">
+            <GrapevineIcon className="!h-6 !w-8 shrink-0 block" />
+            <div className="flex flex-col">
+              <span className="font-semibold">
+                Tap to write a tasting note{' '}
+              </span>
+              <span className="text-xs font-medium text-muted-foreground">
+                (or ask a question)
+              </span>
+            </div>
+          </Link>
+        </Button>
+
+        <Button
+          asChild
+          variant="outline"
+          size="icon"
+          className="h-14 w-14 bg-white border-l-0 rounded-l-none"
+        >
+          <Link href="/dashboard/chats">
+            <ListIcon className="size-6" />
+            <span className="sr-only">View all chats</span>
+          </Link>
+        </Button>
+      </div>
+      <ul className="flex justify-between px-10 pb-3 pt-10 backdrop-blur-sm bg-white/80 dark:bg-background/80">
         <li>
           <Link
             href="/dashboard"

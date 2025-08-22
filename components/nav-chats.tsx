@@ -81,7 +81,7 @@ export async function NavChats() {
                   asChild
                   className="text-sidebar-foreground/70"
                 >
-                  <Link href="/dashboard/chat">
+                  <Link href="/dashboard/chats">
                     <MoreHorizontal />
                     <span>More</span>
                   </Link>
