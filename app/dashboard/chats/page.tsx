@@ -44,7 +44,7 @@ export default async function ChatsPage() {
 
   return (
     <SidebarInset>
-      <header className="flex h-10 md:h-16 shrink-0 items-center gap-2 md:border-b px-4">
+      <header className="hidden md:flex h-16 shrink-0 items-center gap-2 border-b px-4">
         <SidebarTrigger className="-ml-1 hidden md:block" />
         <Separator
           orientation="vertical"
@@ -70,7 +70,7 @@ export default async function ChatsPage() {
           <div>
             <h1 className="text-2xl font-bold tracking-tight">Your Chats</h1>
           </div>
-          <Button asChild>
+          <Button asChild className="hidden md:inline-flex">
             <Link href="/dashboard/chat">
               <Plus className="mr-2 h-4 w-4" />
               New Chat
