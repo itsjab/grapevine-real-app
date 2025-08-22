@@ -68,7 +68,7 @@ export default async function ChatsPage() {
       <main className="flex flex-1 flex-col gap-4 p-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">Your Chats</h1>
+            <h1 className="text-xl font-semibold">Your Chats</h1>
           </div>
           <Button asChild className="hidden md:inline-flex">
             <Link href="/dashboard/chat">
