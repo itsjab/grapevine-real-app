@@ -60,3 +60,21 @@ export async function getRecentTastingNotes(session: Session) {
     throw new GrapevineError('internal_error:database');
   }
 }
+
+export async function getAllTastingNotes(session: Session) {
+  if (!session) {
+    throw new GrapevineError('unauthorized:auth');
+  }
+
+  try {
+    const allNotes = await db
+      .select()
+      .from(tastingNote)
+      .where(eq(tastingNote.userId, session.user.id))
+      .orderBy(desc(tastingNote.createdAt));
+
+    return allNotes;
+  } catch (_error) {
+    throw new GrapevineError('internal_error:database');
+  }
+}

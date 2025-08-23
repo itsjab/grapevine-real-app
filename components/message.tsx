@@ -16,6 +16,7 @@ import {
 import type { ChatMessage } from '@/lib/types/chat';
 import { cn, sanitizeText } from '@/lib/utils';
 import { GrapevineIcon } from './grapevine-icon';
+import { PreviewAttachment } from './preview-attachment';
 import { TastingNoteTextCard } from './tasting-note-cards/text';
 import WineTypewriter from './wine-typewriter';
 
@@ -45,9 +46,9 @@ const PurePreviewMessage = ({
 }) => {
   const [mode, setMode] = useState<'view' | 'edit'>('view');
 
-  // const attachmentsFromMessage = message.parts.filter(
-  //   (part) => part.type === 'file',
-  // );
+  const attachmentsFromMessage = message.parts.filter(
+    (part) => part.type === 'file',
+  );
 
   return (
     <AnimatePresence>
@@ -78,7 +79,7 @@ const PurePreviewMessage = ({
               'min-h-96': message.role === 'assistant' && requiresScrollPadding,
             })}
           >
-            {/* {attachmentsFromMessage.length > 0 && (
+            {attachmentsFromMessage.length > 0 && (
               <div
                 data-testid={`message-attachments`}
                 className="flex flex-row justify-end gap-2"
@@ -94,7 +95,7 @@ const PurePreviewMessage = ({
                   />
                 ))}
               </div>
-            )} */}
+            )}
 
             {message.parts?.map((part, index) => {
               const { type } = part;

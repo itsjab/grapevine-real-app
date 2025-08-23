@@ -11,6 +11,7 @@ import {
 import type { UserWithAnonymous } from 'better-auth/plugins';
 import { headers } from 'next/headers';
 import { generateTitleFromUserMessage } from '@/app/api/chat/actions';
+import { getTastingNotes } from '@/lib/ai/tools/get-tasting-notes';
 import { saveTastingNote } from '@/lib/ai/tools/save-tasting-note';
 // import { after } from 'next/server';
 // import {
@@ -151,8 +152,9 @@ export async function POST(request: Request) {
           messages: convertToModelMessages(uiMessages),
           stopWhen: stepCountIs(5),
           experimental_transform: smoothStream({ chunking: 'word' }),
-          experimental_activeTools: ['saveTastingNote'],
+          experimental_activeTools: ['saveTastingNote', 'getTastingNotes'],
           tools: {
+            getTastingNotes: getTastingNotes({ session }),
             saveTastingNote: saveTastingNote({ session, dataStream }),
           },
           // experimental_telemetry: {
