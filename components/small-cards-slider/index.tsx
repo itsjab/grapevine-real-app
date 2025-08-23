@@ -17,10 +17,7 @@ function SmallCardsSlider({ headline, items }: SmallCardsSliderProps) {
   return (
     <section>
       <h2 className="text-xl font-semibold mb-4">{headline}</h2>
-      <Carousel
-        className="mt-4 -mx-4 max-w-screen"
-        opts={{ containScroll: 'trimSnaps' }}
-      >
+      <Carousel className="mt-4 -mx-4 max-w-screen" opts={{ dragFree: true }}>
         <CarouselContent>
           {items.map((item) => (
             <CarouselItem

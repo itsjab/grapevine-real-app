@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
-import WineTypewriter from '@/components/wine-typewriter';
 import { auth } from '@/lib/auth';
 
 export default async function Home() {
@@ -25,7 +24,7 @@ export default async function Home() {
   }
 
   return (
-    <SidebarInset>
+    <SidebarInset className="overflow-x-hidden">
       <header className="hidden md:flex h-16 shrink-0 items-center gap-2 border-b px-4">
         <SidebarTrigger className="-ml-1" />
         <Separator
