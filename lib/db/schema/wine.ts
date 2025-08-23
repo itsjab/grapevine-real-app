@@ -1,3 +1,4 @@
+import type { InferSelectModel } from 'drizzle-orm';
 import {
   integer,
   primaryKey,
@@ -159,6 +160,8 @@ export const tastingNote = sqliteTable('tasting_note', {
   gradient: text({ mode: 'json' }),
   ...timestamps,
 });
+
+export type TastingNoteSelect = InferSelectModel<typeof tastingNote>;
 
 export const createTastingNoteSchema = createInsertSchema(tastingNote);
 

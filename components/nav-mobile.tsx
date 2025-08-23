@@ -20,11 +20,11 @@ export function MobileNavigation({
         props.className,
       )}
     >
-      <div className="flex mx-4 shadow-sm z-10 top-6 relative">
+      <div className="flex mx-4 rounded-xl shadow-sm z-10 top-6 relative">
         <Button
           asChild
           variant="outline"
-          className="flex-1 h-14 justify-start bg-white border-r-0 rounded-xl rounded-r-none"
+          className="flex-1 h-14 justify-start shadow-none bg-white border-r-0 rounded-xl rounded-r-none"
         >
           <Link href="/dashboard/chat">
             <GrapevineIcon className="!h-6 !w-8 shrink-0 block" />
@@ -43,7 +43,7 @@ export function MobileNavigation({
           asChild
           variant="outline"
           size="icon"
-          className="h-14 w-14 bg-white border-l-0 rounded-xl rounded-l-none"
+          className="h-14 w-14 bg-white shadow-none border-l-0 rounded-xl rounded-l-none"
         >
           <Link href="/dashboard/chats">
             <ListIcon className="size-6" />
