@@ -65,7 +65,17 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
               >
                 <Card
                   className="size-36"
-                  style={note.gradient ? note.gradient : {}}
+                  style={
+                    note.gradient
+                      ? note.gradient
+                      : {
+                          backgroundColor: 'oklch(40.8% 0.153 2.432)',
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 1111 1111' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\"),      radial-gradient(circle at 20% 30%, oklch(65% 0.18 15) 0%, transparent 60%),      radial-gradient(circle at 75% 25%, oklch(55% 0.15 350) 0%, transparent 65%),      radial-gradient(circle at 60% 75%, oklch(35% 0.12 25) 0%, transparent 70%),      radial-gradient(circle at 25% 85%, oklch(45% 0.08 20) 0%, transparent 55%)",
+                          backgroundBlendMode:
+                            'overlay, normal, normal, normal, normal',
+                        }
+                  }
                 >
                   {/* <CardContent className="h-full flex items-center justify-center"></CardContent> */}
                 </Card>
