@@ -4,7 +4,7 @@ import { auth } from '@/lib/auth';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const redirectUrl = searchParams.get('redirectUrl') || '/chat';
+  const redirectUrl = searchParams.get('redirectUrl') || '/dashboard/chat';
 
   await auth.api.signInAnonymous();
 

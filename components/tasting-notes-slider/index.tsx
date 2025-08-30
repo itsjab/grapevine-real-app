@@ -29,7 +29,7 @@ async function TastingNotesSlider({ session }: TastingNoteSliderProps) {
     return (
       <section>
         <h2 className="text-xl font-semibold mb-4">Your Tasting Notes</h2>
-        <Link href="/chat" className="block w-36">
+        <Link href="/dashboard/chat" className="block w-36">
           <Card className="size-36">
             <CardContent className="h-full flex items-center justify-center">
               <Plus className="size-10 text-primary" />
