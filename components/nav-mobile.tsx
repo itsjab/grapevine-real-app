@@ -1,4 +1,4 @@
-import { GrapeIcon, Home, ListIcon, SearchIcon } from 'lucide-react';
+import { GrapeIcon, Home, ListIcon, SearchIcon, Wine } from 'lucide-react';
 import Link from 'next/link';
 import { GrapevineIcon } from '@/components/grapevine-icon';
 import { Button } from '@/components/ui/button';
@@ -58,6 +58,14 @@ export function MobileNavigation({
             className={cn({ 'text-primary': activeLink === 'home' })}
           >
             <Home size={24} />
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/dashboard/tasting-notes"
+            className={cn({ 'text-primary': activeLink === 'tasting-notes' })}
+          >
+            <Wine size={24} />
           </Link>
         </li>
         <li>
