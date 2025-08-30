@@ -11,13 +11,13 @@ export function NavMain() {
   const items = [
     {
       title: 'Home',
-      url: '/',
+      url: '/dashboard',
       icon: Home,
       isActive: true,
     },
     {
       title: 'Guides',
-      url: '/guides',
+      url: '/dashboard/guides',
       icon: GrapeIcon,
     },
   ];
