@@ -22,7 +22,9 @@ export default async function Home() {
       </div>
 
       <p className="mt-2 px-6 text-center">
-        The wine companion for MWs and those in the making.
+        The wine companion for MWs,
+        <br />
+        <span className="font-semibold">and those in the making.</span>
       </p>
 
       <ul className="mt-10 space-y-2">
