@@ -1,4 +1,5 @@
 import { eq } from 'drizzle-orm';
+import { unstable_cache } from 'next/cache';
 import { headers } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
 import { Markdown } from '@/components/markdown';
@@ -50,9 +51,15 @@ export default async function Home({
 
   const varietyData = await getVarietyFromDatabase(variety);
 
+  const cachedGenerateVarietalGuide = unstable_cache(
+    async (variety: string) => generateVarietalGuide(variety),
+    ['varietal-guide'],
+    { tags: [variety, 'varieties'] },
+  );
+
   const guide = varietyData
     ? varietyData.description
-    : await generateVarietalGuide(variety);
+    : await cachedGenerateVarietalGuide(variety);
 
   if (!guide) {
     notFound();

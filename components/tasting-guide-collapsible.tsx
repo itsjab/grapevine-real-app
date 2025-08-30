@@ -10,9 +10,6 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarSeparator,
 } from '@/components/ui/sidebar';
 import VisualSelector from '@/components/visual-selector';
@@ -702,7 +699,7 @@ export function TastingGuide({
             className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full text-sm"
           >
             <CollapsibleTrigger>
-              Secondary Aromas{' '}
+              🍾 Secondary Aromas{' '}
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
@@ -721,16 +718,14 @@ export function TastingGuide({
                 <div>
                   <p className="font-semibold">🍞 Yeast</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    lees, autolysis, flor, biscuit/graham cracker, bread,
-                    toasted bread, pastry, brioche, bread dough, cheese, yogurt,
-                    acetaldehyde
+                    fresh bred, pastry, brioche, lees
                   </p>
                 </div>
 
                 <div>
                   <p className="font-semibold">🧈 Malolactic conversion</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    butter, cream, cheese
+                    butter & butter milk, joghurt, cream
                   </p>
                 </div>
 
@@ -762,7 +757,7 @@ export function TastingGuide({
             className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground w-full text-sm"
           >
             <CollapsibleTrigger>
-              🍾 Tertiary Aromas{' '}
+              ⏳ Tertiary Aromas{' '}
               <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
             </CollapsibleTrigger>
           </SidebarGroupLabel>
@@ -779,29 +774,45 @@ export function TastingGuide({
                 </div>
 
                 <div>
-                  <p className="font-semibold">🍷 Red wine</p>
+                  <p className="font-semibold">🍑 Dried Fruit</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    dried fruit (e.g. prune, raisin, fig), cooked fruit (e.g.
-                    cooked plum, cooked cherry), leather, earth, mushroom, game,
-                    tobacco, wet leaves, forest floor, caramel
+                    white: apricot, raisin, orange marmelade red: fig, date,
+                    plum, cherry, banana
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-semibold">🥂 White wine</p>
+                  <p className="font-semibold">🍄‍🟫 Earthy</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    dried fruit (e.g. dried apricot, raisin) orange marmalade,
-                    petrol (gasoline), cinnamon, ginger, nutmeg, almond,
-                    hazelnut, honey, caramel
+                    wet soil, forest floor, mushrooms, truffle
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-semibold">
-                    🍯 Deliberately oxidised wines
-                  </p>
+                  <p className="font-semibold">🥩 Savory</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    almond, hazelnut, walnut, chocolate, coffee, caramel
+                    game, olive tapenade, leather, soy sauce
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">🥜 Nuts</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    almond, hazelnut, walnut, nutmeg
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">🍯 Caramalized</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    honey, caramel
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">⛽️ Other</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    petroleum, kerosene, wax, wool
                   </p>
                 </div>
               </div>
