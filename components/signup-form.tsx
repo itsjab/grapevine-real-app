@@ -180,7 +180,7 @@ export function SignupForm({
                 Already have an account?{' '}
                 <Link
                   href={`/login${redirect !== '/' ? `?redirect=${encodeURIComponent(redirect)}` : ''}`}
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-primary dark:text-secondary hover:underline"
                 >
                   Sign in
                 </Link>

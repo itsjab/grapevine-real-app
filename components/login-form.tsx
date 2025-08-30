@@ -132,7 +132,7 @@ export function LoginForm({
                 Don&apos;t have an account?{' '}
                 <Link
                   href={`/signup${redirect !== '/' ? `?redirect=${encodeURIComponent(redirect)}` : ''}`}
-                  className="font-medium text-primary hover:underline"
+                  className="font-medium text-primary dark:text-secondary hover:underline"
                 >
                   Sign up
                 </Link>
