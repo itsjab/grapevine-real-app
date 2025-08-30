@@ -37,7 +37,7 @@ const components: Partial<Components> = {
     return (
       // @ts-expect-error
       <Link
-        className="text-primary hover:underline"
+        className="text-primary dark:text-secondary hover:underline"
         rel="noreferrer"
         {...props}
       >
