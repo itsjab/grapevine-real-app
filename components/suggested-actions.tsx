@@ -48,6 +48,7 @@ function PureSuggestedActions({ chatId, sendMessage }: SuggestedActionsProps) {
     'I want to write a a tasting note.',
     'What wine or style should I taste next?',
     'What is my highest rated wine?',
+    'I want to add a hand-written note',
   ];
 
   return (

@@ -58,10 +58,12 @@ export async function POST(request: Request) {
     try {
       const data = await put(`${filename}`, fileBuffer, {
         access: 'public',
+        addRandomSuffix: true,
       });
 
       return NextResponse.json(data);
-    } catch {
+    } catch (error) {
+      console.log(error);
       return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
     }
   } catch {
