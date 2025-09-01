@@ -1,13 +1,7 @@
 'use client';
 
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from 'lucide-react';
+import { ChevronsUpDown, LogOut, User as UserIcon } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -90,28 +84,15 @@ export function NavUserClient({ user }: { user: User }) {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            {/* <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
+            <DropdownMenuGroup>
+              <DropdownMenuItem asChild>
+                <Link href="/dashboard/profile">
+                  <UserIcon />
+                  Profile
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifications
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator /> */}
             <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out

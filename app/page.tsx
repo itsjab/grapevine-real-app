@@ -47,7 +47,7 @@ export default async function Home() {
           <Link href="/signup">Sign up (it's free)</Link>
         </Button>
         <Button asChild variant={'ghost'}>
-          <Link href="/api/auth/guest">Try as guest</Link>
+          <Link href="/login">or login</Link>
         </Button>
       </div>
     </main>

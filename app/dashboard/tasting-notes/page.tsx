@@ -1,8 +1,8 @@
 import { desc, eq } from 'drizzle-orm';
+import { Plus } from 'lucide-react';
 import { headers } from 'next/dist/server/request/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { Plus } from 'lucide-react';
 import { MobileNavigation } from '@/components/nav-mobile';
 import {
   Breadcrumb,
@@ -65,11 +65,12 @@ export default async function TastingNotesPage() {
 
       <main className="pt-6 px-4 pb-32 md:pb-4">
         <h1 className="text-2xl font-semibold mb-6">Your Tasting Notes</h1>
-        
+
         {notes.length === 0 ? (
           <div className="mt-8">
             <p className="text-foreground-muted mb-6">
-              You haven't created any tasting notes yet. Start your wine journey by creating your first note.
+              You haven't created any tasting notes yet. Start your wine journey
+              by creating your first note.
             </p>
             <Link href="/dashboard/chat" className="block w-36">
               <Card className="size-36">
@@ -122,9 +123,7 @@ export default async function TastingNotesPage() {
                   <Plus className="size-10 text-primary" />
                 </CardContent>
               </Card>
-              <CardCaption className="mt-2 w-36">
-                Add a new note
-              </CardCaption>
+              <CardCaption className="mt-2 w-36">Add a new note</CardCaption>
             </Link>
           </div>
         )}
