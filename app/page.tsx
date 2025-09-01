@@ -1,19 +1,8 @@
-import { headers } from 'next/dist/server/request/headers';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { GrapevineIcon } from '@/components/grapevine-icon';
 import { Button } from '@/components/ui/button';
-import { auth } from '@/lib/auth';
 
-export default async function Home() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  if (session) {
-    return redirect('/dashboard');
-  }
-
+export default function Home() {
   return (
     <main className="w-full max-w-xl mx-auto flex flex-col items-center justify-center h-screen px-4 -mt-10">
       <div className="flex gap-2">

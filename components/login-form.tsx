@@ -19,7 +19,7 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<'div'>) {
   const searchParams = useSearchParams();
-  const redirect = searchParams.get('redirect') || '/';
+  const redirect = searchParams.get('redirect') || '/dashboard';
 
   const router = useRouter();
 

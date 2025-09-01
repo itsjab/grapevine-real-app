@@ -4,6 +4,14 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { MobileNavigation } from '@/components/nav-mobile';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -14,14 +22,6 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { auth } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { tastingNote } from '@/lib/db/schema/wine';
@@ -31,7 +31,7 @@ export default async function ProfilePage() {
     headers: await headers(),
   });
 
-  if (!session || session.user.isAnonymous) {
+  if (!session) {
     redirect('/login');
   }
 
@@ -80,7 +80,7 @@ export default async function ProfilePage() {
         </Breadcrumb>
       </header>
       <MobileNavigation activeLink="profile" className="md:hidden" />
-      
+
       <main className="flex flex-1 flex-col gap-6 p-6 pb-32 md:pb-6">
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
@@ -91,88 +91,94 @@ export default async function ProfilePage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-          <CardHeader>
-            <CardTitle>Account Information</CardTitle>
-            <CardDescription>
-              Your personal details and account status
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="flex items-center gap-4">
-              <Avatar className="h-20 w-20">
-                <AvatarImage src={user.image || undefined} alt={user.name} />
-                <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
-              </Avatar>
-              <div className="space-y-1">
-                <h3 className="text-xl font-semibold">{user.name}</h3>
-                <p className="text-sm text-muted-foreground">{user.email}</p>
-              </div>
-            </div>
-
-            <Separator />
-
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium">Name</span>
-                <span className="ml-auto text-sm">{user.name}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium">Email</span>
-                <span className="ml-auto text-sm">{user.email}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm font-medium">Member Since</span>
-                <span className="ml-auto text-sm">{memberSince}</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Wine Journey Statistics</CardTitle>
-            <CardDescription>
-              Your tasting notes and wine exploration progress
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Wine className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">Tasting Notes</span>
+            <CardHeader>
+              <CardTitle>Account Information</CardTitle>
+              <CardDescription>
+                Your personal details and account status
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="flex items-center gap-4">
+                <Avatar className="h-20 w-20">
+                  <AvatarImage src={user.image || undefined} alt={user.name} />
+                  <AvatarFallback>{getInitials(user.name)}</AvatarFallback>
+                </Avatar>
+                <div className="space-y-1">
+                  <h3 className="text-xl font-semibold">{user.name}</h3>
+                  <p className="text-sm text-muted-foreground">{user.email}</p>
                 </div>
-                <p className="text-2xl font-bold">{totalNotes}</p>
-                <p className="text-xs text-muted-foreground">wines evaluated</p>
               </div>
-              <div className="space-y-2">
+
+              <Separator />
+
+              <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-medium">Active Days</span>
+                  <User className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm font-medium">Name</span>
+                  <span className="ml-auto text-sm">{user.name}</span>
                 </div>
-                <p className="text-2xl font-bold">—</p>
-                <p className="text-xs text-muted-foreground">coming soon</p>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm font-medium">Email</span>
+                  <span className="ml-auto text-sm">{user.email}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm font-medium">Member Since</span>
+                  <span className="ml-auto text-sm">{memberSince}</span>
+                </div>
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            <Separator />
+          <Card>
+            <CardHeader>
+              <CardTitle>Wine Journey Statistics</CardTitle>
+              <CardDescription>
+                Your tasting notes and wine exploration progress
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Wine className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">Tasting Notes</span>
+                  </div>
+                  <p className="text-2xl font-bold">{totalNotes}</p>
+                  <p className="text-xs text-muted-foreground">
+                    wines evaluated
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">Active Days</span>
+                  </div>
+                  <p className="text-2xl font-bold">—</p>
+                  <p className="text-xs text-muted-foreground">coming soon</p>
+                </div>
+              </div>
 
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <span className="text-sm font-medium">Daily Message Quota</span>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    Authenticated User
+              <Separator />
+
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <span className="text-sm font-medium">
+                    Daily Message Quota
                   </span>
-                  <span className="text-sm font-medium">100 messages/day</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">
+                      Authenticated User
+                    </span>
+                    <span className="text-sm font-medium">
+                      100 messages/day
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
         </div>
 
         <Card>
