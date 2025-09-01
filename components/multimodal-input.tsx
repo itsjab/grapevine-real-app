@@ -4,13 +4,7 @@ import type { UseChatHelpers } from '@ai-sdk/react';
 import type { UIMessage } from 'ai';
 import cx from 'classnames';
 import equal from 'fast-deep-equal';
-import {
-  ArrowDown,
-  ArrowUpIcon,
-  PaperclipIcon,
-  Square,
-  Wine,
-} from 'lucide-react';
+import { ArrowDown, ArrowUpIcon, PaperclipIcon, Square } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import type React from 'react';
 import {
@@ -29,8 +23,8 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { useScrollToBottom } from '@/hooks/use-scroll-to-bottom';
 import type { Attachment, ChatMessage } from '@/lib/types/chat';
-
 import { PreviewAttachment } from './preview-attachment';
+import { SuggestedActions } from './suggested-actions';
 
 function PureMultimodalInput({
   chatId,
@@ -238,15 +232,11 @@ function PureMultimodalInput({
         )}
       </AnimatePresence>
 
-      {/* {messages.length === 0 &&
+      {messages.length === 0 &&
         attachments.length === 0 &&
         uploadQueue.length === 0 && (
-          <SuggestedActions
-            sendMessage={sendMessage}
-            chatId={chatId}
-            selectedVisibilityType={selectedVisibilityType}
-          />
-        )} */}
+          <SuggestedActions sendMessage={sendMessage} chatId={chatId} />
+        )}
 
       <input
         type="file"
@@ -260,7 +250,7 @@ function PureMultimodalInput({
       {(attachments.length > 0 || uploadQueue.length > 0) && (
         <div
           data-testid="attachments-preview"
-          className="flex flex-row gap-2 overflow-x-scroll items-end"
+          className="flex flex-row gap-2 overflow-x-scroll items-end pl-4 md:pl-0"
         >
           {attachments.map((attachment) => (
             <PreviewAttachment key={attachment.url} attachment={attachment} />
@@ -381,7 +371,6 @@ function PureTastingGuideButton({
   return (
     <Button
       data-testid="tasting-guide-button"
-      className="bg-secondary/30 "
       onClick={(event) => {
         event.preventDefault();
         openRightSidebar();
