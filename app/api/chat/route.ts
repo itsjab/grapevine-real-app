@@ -8,7 +8,6 @@ import {
   stepCountIs,
   streamText,
 } from 'ai';
-import type { UserWithAnonymous } from 'better-auth/plugins';
 import { headers } from 'next/headers';
 import { generateTitleFromUserMessage } from '@/app/api/chat/actions';
 import { getTastingNotes } from '@/lib/ai/tools/get-tasting-notes';
@@ -92,7 +91,7 @@ export async function POST(request: Request) {
       differenceInHours: 24,
     });
 
-    const quota = getQuotaByUserType(session.user as UserWithAnonymous);
+    const quota = getQuotaByUserType(session.user);
 
     if (messageCount > quota.maxMessagesPerDay) {
       return new GrapevineError('rate_limit:chat').toResponse();
