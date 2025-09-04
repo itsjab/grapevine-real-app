@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
 
+import { Analytics } from '@vercel/analytics/next';
 import { Toaster } from '@/components/ui/sonner';
 
 const nunito = Nunito({
@@ -45,6 +46,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
           <Toaster />
         </ThemeProvider>
       </body>
