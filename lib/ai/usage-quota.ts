@@ -1,10 +1,10 @@
-import type { UserWithAnonymous } from 'better-auth/plugins';
+import type { User } from '../auth';
 
 interface Quota {
   maxMessagesPerDay: number;
 }
 
-export const getQuotaByUserType = (user: UserWithAnonymous): Quota => {
+export const getQuotaByUserType = (user: User): Quota => {
   if (user.isAnonymous) {
     return {
       maxMessagesPerDay: 10,
@@ -12,6 +12,6 @@ export const getQuotaByUserType = (user: UserWithAnonymous): Quota => {
   }
 
   return {
-    maxMessagesPerDay: 100,
+    maxMessagesPerDay: 50,
   };
 };
